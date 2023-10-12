@@ -21,7 +21,7 @@ const BlogPage = () => {
               <img
                 alt=""
                 className="object-cover w-full h-52 "
-                src="https://source.unsplash.com/200x200/?fashion?1"
+                src="https://source.unsplash.com/200x200/?painting?1"
               />
             </a>
             <div className="flex flex-col flex-1 p-6">

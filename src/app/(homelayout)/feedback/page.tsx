@@ -2,18 +2,29 @@
 import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
 import FormTextArea from "@/components/Forms/FormTextArea";
-import { Button } from "antd";
+import { useAddFeedbackMutation } from "@/redux/api/feedbackApi";
+import { Button, message } from "antd";
+import { Rate } from "antd";
+import { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 
 const FeedbackPage = () => {
+  const desc = ["terrible", "bad", "normal", "good", "wonderful"];
+  const [value, setValue] = useState(1);
+  const [addFeedback] = useAddFeedbackMutation();
   type FormValues = {
+    name: string;
     email: string;
     feedback: string;
   };
 
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
-      console.log(data);
+      data.rating = value;
+      const response = await addFeedback(data).unwrap();
+      if (response?._id) {
+        message.success("Thank you for your feedback");
+      }
     } catch (err: any) {
       console.error(err.message);
     }
@@ -36,11 +47,21 @@ const FeedbackPage = () => {
             <Form submitHandler={onSubmit}>
               <div>
                 <FormInput
+                  name="name"
+                  type="text"
+                  size="large"
+                  label="Full Name"
+                />
+                <FormInput
                   name="email"
                   type="email"
                   size="large"
                   label="Email"
                 />
+              </div>
+              <div className="mt-5">
+                <p>Rating</p>
+                <Rate tooltips={desc} onChange={setValue} value={value} />
               </div>
               <div
                 style={{
