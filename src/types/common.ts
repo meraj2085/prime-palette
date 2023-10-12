@@ -19,3 +19,11 @@ export type IGenericErrorMessage = {
   path: string | number;
   message: string;
 };
+
+export interface IService {
+  name: string;
+  price: number;
+  description: string;
+  availability: boolean;
+  image_url: string;
+}
