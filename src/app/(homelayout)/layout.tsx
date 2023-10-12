@@ -7,7 +7,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Navbar />
-      {children}
+      <div>{children}</div>
       <Footer />
     </div>
   );
