@@ -14,7 +14,7 @@ import { authKey } from "@/constants/storageKey";
 import { useRouter } from "next/navigation";
 import { FireOutlined, BugOutlined } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { getFromLocalStorage, setToLocalStorage } from "@/utils/local-storage";
+import { getFromLocalStorage, setToLocalStorage } from "@/utils/localStorage";
 const { Header: AntHeader } = Layout;
 
 const Header = () => {

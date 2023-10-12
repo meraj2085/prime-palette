@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import primePalette from "../../assets/prime-palette.png";
+import { getUserInfo } from "@/services/auth.service";
 
 const NavBar = () => {
+  const { role } = getUserInfo() as any;
   return (
     <header className="bg-white">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
