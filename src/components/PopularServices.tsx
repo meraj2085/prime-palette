@@ -20,7 +20,7 @@ const PopularServices = () => {
 
   const { data, isLoading } = useServicesQuery({ ...query });
   return (
-    <section id="popular_services" className="bg-white my-10 max-w-[1200px] mx-auto">
+    <section className="bg-white my-10 max-w-[1200px] mx-auto">
       <div className="px-6 py-10">
         <div className="text-center">
           <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-4xl lg:font-bold ">
