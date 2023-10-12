@@ -18,12 +18,12 @@ const NavBar = () => {
             <nav aria-label="Global" className="hidden md:block">
               <ul className="flex items-center gap-6 text-sm">
                 <li>
-                  <Link
+                  <a
                     className="text-gray-500 transition hover:text-gray-500/75"
-                    href="/allBooks"
+                    href="#popular_services"
                   >
-                    All Books
-                  </Link>
+                    Popular
+                  </a>
                 </li>
 
                 <li>

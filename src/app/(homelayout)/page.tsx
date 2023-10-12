@@ -1,6 +1,7 @@
 import RecentServices from "@/components/PopularServices";
 import heroImage from "../../assets/heroImage.png";
 import Image from "next/image";
+import PopularServices from "@/components/PopularServices";
 
 export default function Home() {
   return (
@@ -70,7 +71,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <RecentServices />
+      <PopularServices />
     </>
   );
 }
