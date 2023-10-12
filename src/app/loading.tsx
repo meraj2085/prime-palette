@@ -1,18 +1,8 @@
-import { Row, Space, Spin } from "antd";
-
 const Loading = () => {
   return (
-    <Row
-      justify="center"
-      align="middle"
-      style={{
-        height: "100vh",
-      }}
-    >
-      <Space>
-        <Spin size="large"></Spin>
-      </Space>
-    </Row>
+    <div className="flex justify-center items-center h-screen">
+      <div className="animate-spin rounded-full border-t-4 border-teal-600 border-solid h-16 w-16"></div>
+    </div>
   );
 };
 

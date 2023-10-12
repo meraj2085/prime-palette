@@ -2,14 +2,7 @@ import { Button } from "antd";
 
 export default function Home() {
   return (
-    <div>
-      <Button type="primary">Primary Button</Button>
-      <button
-        type="button"
-        className="px-8 py-3 font-semibold rounded-full bg-gray-800 text-gray-100"
-      >
-        Rounded
-      </button>
+    <div className="min-h-screen">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum iusto,
         minima expedita praesentium nisi repudiandae optio voluptatum inventore
