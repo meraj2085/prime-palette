@@ -91,7 +91,7 @@ const ServiceDetailsPage = ({ params }: IDProps) => {
               </dd>
             </dl>
             <div className="flex justify-end">
-              <Link href={`/services/details/${data?._id}`}>
+              <Link href={`/appointment/${id}`}>
                 <p className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8B8BCF]">
                   Book an appointment
                   <span
