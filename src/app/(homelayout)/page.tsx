@@ -2,6 +2,8 @@ import RecentServices from "@/components/PopularServices";
 import heroImage from "../../assets/heroImage.png";
 import Image from "next/image";
 import PopularServices from "@/components/PopularServices";
+import AboutUs from "@/components/AboutUs";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -72,6 +74,8 @@ export default function Home() {
         </div>
       </div>
       <PopularServices />
+      <AboutUs />
+      <Testimonials />
     </>
   );
 }
