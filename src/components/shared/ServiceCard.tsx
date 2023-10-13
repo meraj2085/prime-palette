@@ -25,7 +25,7 @@ const ServiceCard = ({ service }: any) => {
         <div className="flex-grow"></div>
         <div className="button_part flex justify-end">
           <Link href={`/services/details/${service?._id}`}>
-            <p className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
+            <p className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8B8BCF]">
               See details
               <span
                 aria-hidden="true"
