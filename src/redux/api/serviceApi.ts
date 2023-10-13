@@ -28,7 +28,19 @@ export const serviceApi = baseApi.injectEndpoints({
       }),
       providesTags: [tagTypes.service],
     }),
+    addComment: build.mutation({
+      query: (UpdateData) => ({
+        url: `${SERVICE_URL}/addComment`,
+        method: "PATCH",
+        data: UpdateData,
+      }),
+      invalidatesTags: [tagTypes.service],
+    }),
   }),
 });
 
-export const { useServicesQuery, useSingleServiceQuery } = serviceApi;
+export const {
+  useServicesQuery,
+  useSingleServiceQuery,
+  useAddCommentMutation,
+} = serviceApi;

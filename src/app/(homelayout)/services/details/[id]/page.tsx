@@ -1,7 +1,12 @@
 "use client";
 
 import Loading from "@/app/loading";
-import { useSingleServiceQuery } from "@/redux/api/serviceApi";
+import BreadCrumb from "@/components/ui/BreadCumb";
+import {
+  useAddCommentMutation,
+  useSingleServiceQuery,
+} from "@/redux/api/serviceApi";
+import { message } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,11 +16,45 @@ type IDProps = {
 const ServiceDetailsPage = ({ params }: IDProps) => {
   const { id } = params;
   const { data, isLoading } = useSingleServiceQuery(id);
+  const [addComment] = useAddCommentMutation();
+
+  const handleAddComment = async (e: any) => {
+    e.preventDefault();
+    const comment = e.target.message.value;
+    const options = {
+      id: data?._id,
+      comment: comment,
+    };
+    const response = await addComment(options).unwrap();
+    if (response?._id) {
+      message.success("Comment added successfully");
+    } else {
+      message.error("Failed to add comment");
+    }
+  };
 
   if (isLoading) return <Loading />;
 
   return (
     <section className="bg-white my-10 max-w-[1200px] mx-auto">
+      <div className="md:mb-2 mb-0 mx-5 md:mx-0">
+        <BreadCrumb
+          items={[
+            {
+              label: "Home",
+              link: "/",
+            },
+            {
+              label: "Services",
+              link: "/services",
+            },
+            {
+              label: "Details",
+              link: `/services/details/${data?._id}`,
+            },
+          ]}
+        />
+      </div>
       <div>
         <div className="flex justify-center pt-10 pb-20 mx-5 md:mx-0">
           <div className="rounded-lg border border-gray-200 p-4 sm:p-6 lg:p-8 w-[500px] shadow-md">
@@ -99,7 +138,7 @@ const ServiceDetailsPage = ({ params }: IDProps) => {
                 </article>
               ))}
             </div>
-            <form className="md:w-1/2 md:mt-5 mt-0">
+            <form onSubmit={handleAddComment} className="md:w-1/2 md:mt-5 mt-0">
               {" "}
               <textarea
                 id="message"
