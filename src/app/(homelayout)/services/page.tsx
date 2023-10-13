@@ -5,6 +5,7 @@ import { Pagination, Select } from "antd";
 import { useServicesQuery } from "@/redux/api/serviceApi";
 import ServiceCard from "@/components/shared/ServiceCard";
 import SkeletonCard from "@/components/shared/SkeletonCard";
+import BreadCrumb from "@/components/ui/BreadCumb";
 
 const ServicesPage = () => {
   const query: Record<string, any> = {};
@@ -64,21 +65,6 @@ const ServicesPage = () => {
         <div className="flex gap-2">
           <Select
             showSearch
-            placeholder="Sort Order"
-            onChange={onSortOrderChange}
-            options={[
-              {
-                value: "asc",
-                label: "Ascending",
-              },
-              {
-                value: "desc",
-                label: "Descending",
-              },
-            ]}
-          />
-          <Select
-            showSearch
             placeholder="Sort by"
             onChange={onSortChange}
             options={[
@@ -92,7 +78,36 @@ const ServicesPage = () => {
               },
             ]}
           />
+          <Select
+            showSearch
+            placeholder="Sort Order"
+            onChange={onSortOrderChange}
+            options={[
+              {
+                value: "asc",
+                label: "Ascending",
+              },
+              {
+                value: "desc",
+                label: "Descending",
+              },
+            ]}
+          />
         </div>
+      </div>
+      <div className="mb-2">
+        <BreadCrumb
+          items={[
+            {
+              label: "Home",
+              link: "/",
+            },
+            {
+              label: "Services",
+              link: "/services",
+            },
+          ]}
+        />
       </div>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4 mx-6 md:mx-0">
         {isLoading && [1, 2, 3, 4].map((n) => <SkeletonCard key={n} />)}
