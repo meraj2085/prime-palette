@@ -27,3 +27,20 @@ export interface IService {
   availability: boolean;
   image_url: string;
 }
+
+type UserName = {
+  firstName: string;
+  lastName: string;
+};
+
+export enum UserRoles {
+  USER = "user",
+  ADMIN = "admin",
+  SUPER_ADMIN = "super_admin",
+}
+
+export type IUser = {
+  name: UserName;
+  email: string;
+  mobileNumber: string;
+};

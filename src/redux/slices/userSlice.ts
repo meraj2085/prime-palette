@@ -8,6 +8,7 @@ const initialState = {
     },
     _id: "",
     email: "",
+    mobileNumber: "",
     id: "",
   },
 };
