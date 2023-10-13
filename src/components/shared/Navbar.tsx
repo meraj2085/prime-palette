@@ -90,6 +90,16 @@ const NavBar = () => {
                     Feedback
                   </Link>
                 </li>
+                {role && (
+                  <li>
+                    <Link
+                      className="text-gray-500 transition hover:text-gray-500/75"
+                      href="/booking"
+                    >
+                      Booking
+                    </Link>
+                  </li>
+                )}
               </ul>
             </nav>
 

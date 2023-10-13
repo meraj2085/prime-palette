@@ -12,8 +12,8 @@ export const appointmentApi = baseApi.injectEndpoints({
       providesTags: [tagTypes.appointment],
     }),
     userAppointments: build.query({
-      query: (id) => ({
-        url: `${APPOINTMENT_API}/user/${id}`,
+      query: () => ({
+        url: `${APPOINTMENT_API}/`,
         method: "GET",
       }),
       providesTags: [tagTypes.appointment],

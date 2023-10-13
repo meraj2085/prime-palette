@@ -29,7 +29,7 @@ const PopularServices = () => {
           </h1>
 
           <p className="max-w-lg mx-auto mt-4 text-gray-500">
-            Our most popular services that make you might like
+            Our most popular services that you might like
           </p>
         </div>
 
