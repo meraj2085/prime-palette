@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Pagination, Select } from "antd";
+import { Pagination, PaginationProps, Select } from "antd";
 import { useServicesQuery } from "@/redux/api/serviceApi";
 import ServiceCard from "@/components/shared/ServiceCard";
 import SkeletonCard from "@/components/shared/SkeletonCard";
 import BreadCrumb from "@/components/ui/BreadCumb";
+import { useDebounced } from "@/redux/hooks";
 
 const ServicesPage = () => {
   const query: Record<string, any> = {};
@@ -20,10 +21,27 @@ const ServicesPage = () => {
   query["sortBy"] = sortBy;
   query["sortOrder"] = sortOrder;
 
+  const debouncedTerm = useDebounced({
+    searchQuery: searchTerm,
+    delay: 600,
+  });
+
+  if (!!debouncedTerm) {
+    query["searchTerm"] = debouncedTerm;
+  }
+
   const { data, isLoading } = useServicesQuery({ ...query });
 
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
+  };
+
+  const onShowSizeChange: PaginationProps["onShowSizeChange"] = (
+    current,
+    pageSize
+  ) => {
+    console.log(current, pageSize);
+    setSize(pageSize);
   };
 
   const onSortChange = (value: string) => {
@@ -57,6 +75,9 @@ const ServicesPage = () => {
           </div>
           <input
             type="text"
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+            }}
             className="block w-full p-1.5 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
             placeholder="Search..."
             required
@@ -122,6 +143,8 @@ const ServicesPage = () => {
           total={data?.meta?.total ?? 0}
           pageSize={size}
           onChange={handlePageChange}
+          showSizeChanger
+          onShowSizeChange={onShowSizeChange}
         />
       </div>
     </section>
