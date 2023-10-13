@@ -1,14 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Pagination } from "antd";
+import { Pagination, Select } from "antd";
 import { useServicesQuery } from "@/redux/api/serviceApi";
 import ServiceCard from "@/components/shared/ServiceCard";
 import SkeletonCard from "@/components/shared/SkeletonCard";
 
 const ServicesPage = () => {
   const query: Record<string, any> = {};
-
   const [page, setPage] = useState<number>(1);
   const [size, setSize] = useState<number>(10);
   const [sortBy, setSortBy] = useState<string>("");
@@ -26,11 +25,75 @@ const ServicesPage = () => {
     setPage(newPage);
   };
 
+  const onSortChange = (value: string) => {
+    setSortBy(value);
+  };
+
+  const onSortOrderChange = (value: string) => {
+    setSortOrder(value);
+  };
+
   return (
     <section className="bg-white my-10 max-w-[1200px] mx-auto">
-        <div>
-            <h1>hew</h1>
+      <div className="flex justify-between mb-5">
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <svg
+              className="w-4 h-4 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 20 20"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+              />
+            </svg>
+          </div>
+          <input
+            type="text"
+            className="block w-full p-1.5 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
+            placeholder="Search..."
+            required
+          />
         </div>
+        <div className="flex gap-2">
+          <Select
+            showSearch
+            placeholder="Sort Order"
+            onChange={onSortOrderChange}
+            options={[
+              {
+                value: "asc",
+                label: "Ascending",
+              },
+              {
+                value: "desc",
+                label: "Descending",
+              },
+            ]}
+          />
+          <Select
+            showSearch
+            placeholder="Sort by"
+            onChange={onSortChange}
+            options={[
+              {
+                value: "name",
+                label: "Name",
+              },
+              {
+                value: "description",
+                label: "Description",
+              },
+            ]}
+          />
+        </div>
+      </div>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4 mx-6 md:mx-0">
         {isLoading && [1, 2, 3, 4].map((n) => <SkeletonCard key={n} />)}
         {data?.services?.map((service: any) => (
