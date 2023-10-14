@@ -2,17 +2,17 @@
 
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import Image from "next/image";
-import { useGetSingleBlogQuery } from "@/redux/api/blogApi";
 import Loading from "@/app/loading";
 import dayjs from "dayjs";
+import { useGetSingleFaqQuery } from "@/redux/api/faqApi";
 
 type IDProps = {
   params: any;
 };
 
-const ViewBlogPage = ({ params }: IDProps) => {
+const ViewFAQPage = ({ params }: IDProps) => {
   const { id } = params;
-  const { data, isLoading } = useGetSingleBlogQuery(id);
+  const { data, isLoading } = useGetSingleFaqQuery(id);
 
   if (isLoading) return <Loading />;
 
@@ -25,18 +25,18 @@ const ViewBlogPage = ({ params }: IDProps) => {
             link: "/dashboard/admin",
           },
           {
-            label: "Blog",
-            link: "/dashboard/admin/content/blogManagement",
+            label: "FAQ",
+            link: "/dashboard/admin/content/faqManagement",
           },
           {
             label: "View",
-            link: `/dashboard/admin/content/blogManagement/view/${id}`,
+            link: `/dashboard/admin/content/faqManagement/view/${id}`,
           },
         ]}
       />
 
       <div>
-        <h1 className="text-center text-4xl font-bold leadi">View Blog</h1>
+        <h1 className="text-center text-4xl font-bold leadi">View FAQ</h1>
         <div className="max-w-[300px] mx-auto mt-3">
           <hr className="border-t-1 border-gray-500" />
         </div>
@@ -66,18 +66,15 @@ const ViewBlogPage = ({ params }: IDProps) => {
               <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
                 <a href="#">
                   <h3 className="font-bold uppercase text-gray-900">
-                    {data?.title}
+                    {data?.question}
                   </h3>
                 </a>
 
                 <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                  {data?.description}
+                  {data?.answer}
                 </p>
                 <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                  Views: {data?.views}K
-                </p>
-                <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                  Published: {dayjs(data?.createdAt).format("MMM D, YYYY")}
+                  Created: {dayjs(data?.createdAt).format("MMM D, YYYY")}
                 </p>
               </div>
             </div>
@@ -88,4 +85,4 @@ const ViewBlogPage = ({ params }: IDProps) => {
   );
 };
 
-export default ViewBlogPage;
+export default ViewFAQPage;
