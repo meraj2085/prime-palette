@@ -18,6 +18,13 @@ export const appointmentApi = baseApi.injectEndpoints({
       }),
       providesTags: [tagTypes.appointment],
     }),
+    getAllAppointment: build.query({
+      query: () => ({
+        url: `${APPOINTMENT_API}/getAllAppointment`,
+        method: "GET",
+      }),
+      providesTags: [tagTypes.appointment],
+    }),
     addAppointment: build.mutation({
       query: (data) => ({
         url: `${APPOINTMENT_API}/`,
@@ -42,4 +49,5 @@ export const {
   useSingleAppointmentQuery,
   useUserAppointmentsQuery,
   useUpdateAppointmentStatusMutation,
+  useGetAllAppointmentQuery,
 } = appointmentApi;
