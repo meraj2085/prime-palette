@@ -26,6 +26,14 @@ export const appointmentApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.appointment],
     }),
+    updateAppointmentStatus: build.mutation({
+      query: (data) => ({
+        url: `${APPOINTMENT_API}/update-status`,
+        method: "PATCH",
+        data: data,
+      }),
+      invalidatesTags: [tagTypes.appointment],
+    }),
   }),
 });
 
@@ -33,4 +41,5 @@ export const {
   useAddAppointmentMutation,
   useSingleAppointmentQuery,
   useUserAppointmentsQuery,
+  useUpdateAppointmentStatusMutation,
 } = appointmentApi;
