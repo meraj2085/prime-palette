@@ -6,8 +6,7 @@ import ActionBar from "@/components/ui/ActionBar";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import {
   useGetSingleUserQuery,
-  useUpdateProfileMutation,
-  useUpdateUSerMutation,
+  useUpdateUserMutation,
 } from "@/redux/api/userApi";
 
 import { Button, Col, Row, message } from "antd";
@@ -21,7 +20,7 @@ const EditUserPage = ({ params }: IDProps) => {
   const { id } = params;
   const router = useRouter();
   const { data, isLoading } = useGetSingleUserQuery(id);
-  const [updateUSer] = useUpdateUSerMutation();
+  const [updateUSer] = useUpdateUserMutation();
 
   const onSubmit = async (values: any) => {
     try {
