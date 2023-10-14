@@ -40,7 +40,11 @@ export enum UserRoles {
 }
 
 export type IUser = {
-  name: UserName;
-  email: string;
-  mobileNumber: string;
+  id?: string;
+  name?: UserName;
+  email?: string;
+  mobileNumber?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
 };
