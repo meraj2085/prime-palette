@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
+import SetupAnalytics from "../../../../assets/SetupAnalytics.png";
+import Image from "next/image";
 
 const AdminPage = () => {
-    return (
-        <div>
-            AdminPage
-        </div>
-    );
+  return (
+    <div className="flex justify-center">
+      <Image src={SetupAnalytics} alt="" width={670} />
+    </div>
+  );
 };
 
 export default AdminPage;
