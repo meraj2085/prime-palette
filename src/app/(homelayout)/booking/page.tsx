@@ -3,6 +3,7 @@
 import Loading from "@/app/loading";
 import { useUserAppointmentsQuery } from "@/redux/api/appointmentApi";
 import { Tooltip } from "antd";
+import dayjs from "dayjs";
 import Image from "next/image";
 
 const BookingPage = () => {
@@ -34,12 +35,12 @@ const BookingPage = () => {
             role="dialog"
             tabIndex={1}
           >
-            <div className="mt-4 space-y-6">
-              <ul className="space-y-4">
+            <div className="mt-4 space-y-6 ">
+              <ul className="space-y-4 ">
                 {data?.map((appointment: any) => (
                   <li
                     key={appointment?._id}
-                    className="flex items-center gap-4"
+                    className="flex items-center gap-4 border border-gray-200 shadow px-4 py-4 rounded-md"
                   >
                     <Image
                       src={appointment?.serviceId?.image_url}
@@ -68,6 +69,15 @@ const BookingPage = () => {
                             {appointment?.appointment_status}
                           </dd>
                         </div>
+
+                        <div>
+                          <dt className="inline">Appointment Date: </dt>
+                          <dd className="inline">
+                            {dayjs(appointment?.appointment_date).format(
+                              "MMM D, YYYY"
+                            )}
+                          </dd>
+                        </div>
                       </dl>
                     </div>
 
@@ -75,7 +85,7 @@ const BookingPage = () => {
                       <Tooltip title="Cancel booking">
                         <button
                           onClick={() => handleCancelBooking(appointment?._id)}
-                          className="text-gray-600 transition hover:text-red-600 rounded border-gray-200 bg-gray-50 px-2 py-1"
+                          className="text-gray-600 transition hover:text-[#8687C5] rounded border-gray-200 bg-gray-50 px-2 py-1"
                         >
                           <span className="sr-only">Cancel booking</span>
                           <svg

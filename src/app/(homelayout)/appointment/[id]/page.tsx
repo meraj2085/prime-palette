@@ -12,17 +12,25 @@ import { Button, Col, Row, message } from "antd";
 import { redirect, useRouter } from "next/navigation";
 import dayjs from "dayjs";
 import { getUserInfo } from "@/services/auth.service";
+import { useAppSelector } from "@/redux/hooks";
+import { IUser } from "@/types";
 
 type IDProps = {
   params: any;
 };
 
 const AppointmentPage = ({ params }: IDProps) => {
+  const user = useAppSelector((state): IUser | undefined => state.user.user);
   const router = useRouter();
   const { id } = params;
   const { userId } = getUserInfo() as any;
   const { data, isLoading } = useSingleServiceQuery(id);
   const [addAppointment] = useAddAppointmentMutation();
+
+  const defaultValues = {
+    fullName: `${user?.name?.firstName} ${user?.name?.lastName}` || "",
+    mobileNumber: user?.mobileNumber || "",
+  };
 
   const formOnSubmit = async (data: any) => {
     const originalDate = new Date(data.appointment_date);
@@ -36,7 +44,7 @@ const AppointmentPage = ({ params }: IDProps) => {
       const res = await addAppointment(data).unwrap();
       if (res?._id) {
         message.success("Appointment booked successfully");
-        router.push("/profile");
+        router.push("/booking");
       } else {
         message.error("Booking failed");
       }
@@ -71,7 +79,7 @@ const AppointmentPage = ({ params }: IDProps) => {
           ]}
         />
       </div>
-      <Form submitHandler={formOnSubmit}>
+      <Form submitHandler={formOnSubmit} defaultValues={defaultValues}>
         <div
           className="mx-5 md:mx-0"
           style={{
