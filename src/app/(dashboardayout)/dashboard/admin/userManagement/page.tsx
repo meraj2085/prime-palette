@@ -72,19 +72,15 @@ const UserManagementPage = () => {
       render: function (data: any) {
         return (
           <>
-            <Link href={`/super_admin/admin/edit/${data.id}`}>
+            <Link href={`/dashboard/admin/userManagement/edit/${data}`}>
               <Button
                 style={{
                   margin: "0px 5px",
                 }}
-                onClick={() => console.log(data)}
               >
                 <EditOutlined />
               </Button>
             </Link>
-            <Button onClick={() => console.log(data)} type="primary" danger>
-              <DeleteOutlined />
-            </Button>
           </>
         );
       },

@@ -35,11 +35,26 @@ export const userApi = baseApi.injectEndpoints({
       }),
       providesTags: [tagTypes.user],
     }),
+    getSingleUser: build.query({
+      query: (id) => ({
+        url: `${USER_URL}/${id}`,
+        method: "GET",
+      }),
+      providesTags: [tagTypes.user],
+    }),
     updateProfile: build.mutation({
       query: (data) => ({
         url: `${USER_URL}/my-profile`,
         method: "PATCH",
         data: data,
+      }),
+      invalidatesTags: [tagTypes.user],
+    }),
+    updateUSer: build.mutation({
+      query: (data) => ({
+        url: `${USER_URL}/${data.id}`,
+        method: "PATCH",
+        data: data?.data,
       }),
       invalidatesTags: [tagTypes.user],
     }),
@@ -50,5 +65,7 @@ export const {
   useGetProfileQuery,
   useUpdateProfileMutation,
   useGetAllUsersQuery,
-  useUpdateUserMutation
+  useGetSingleUserQuery,
+  useUpdateUserMutation,
+  useUpdateUSerMutation,
 } = userApi;
