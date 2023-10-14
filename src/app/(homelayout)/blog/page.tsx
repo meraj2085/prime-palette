@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const BlogPage = () => {
-  const { data, isLoading } = useGetAllBlogsQuery(undefined);
+  const { data, isLoading } = useGetAllBlogsQuery({});
   if (isLoading) return <Loading />;
   return (
     <section className="min-h-screen max-w-[1200px] mx-auto">
@@ -22,7 +22,7 @@ const BlogPage = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
-          {data?.map((blog: any, index: any) => (
+          {data?.blogs?.map((blog: any, index: any) => (
             <Link key={blog?._id} href={`/blog/details/${blog?._id}`}>
               <article className="flex flex-col ">
                 <Image

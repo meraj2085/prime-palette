@@ -1,3 +1,4 @@
+import { IFaq, IMeta } from "@/types";
 import { tagTypes } from "../tagTypes";
 import { baseApi } from "./baseApi";
 const FAQ_URL = "/faq";
@@ -5,10 +6,19 @@ const FAQ_URL = "/faq";
 export const faqApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getAllFaq: build.query({
-      query: () => ({
-        url: `${FAQ_URL}/`,
-        method: "GET",
-      }),
+      query: (arg: Record<string, any>) => {
+        return {
+          url: FAQ_URL,
+          method: "GET",
+          params: arg,
+        };
+      },
+      transformResponse: (response: IFaq[], meta: IMeta) => {
+        return {
+          faq: response,
+          meta,
+        };
+      },
       providesTags: [tagTypes.faq],
     }),
     getSingleFaq: build.query({
@@ -35,10 +45,9 @@ export const faqApi = baseApi.injectEndpoints({
       invalidatesTags: [tagTypes.faq],
     }),
     deleteFaq: build.mutation({
-      query: (data) => ({
-        url: `${FAQ_URL}/`,
+      query: (id) => ({
+        url: `${FAQ_URL}/${id}`,
         method: "DELETE",
-        data: data,
       }),
       invalidatesTags: [tagTypes.faq],
     }),

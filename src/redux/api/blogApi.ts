@@ -1,3 +1,4 @@
+import { IBlog, IMeta } from "@/types";
 import { tagTypes } from "../tagTypes";
 import { baseApi } from "./baseApi";
 const BLOG_URL = "/blog";
@@ -5,10 +6,19 @@ const BLOG_URL = "/blog";
 export const blogApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getAllBlogs: build.query({
-      query: () => ({
-        url: `${BLOG_URL}/`,
-        method: "GET",
-      }),
+      query: (arg: Record<string, any>) => {
+        return {
+          url: BLOG_URL,
+          method: "GET",
+          params: arg,
+        };
+      },
+      transformResponse: (response: IBlog[], meta: IMeta) => {
+        return {
+          blogs: response,
+          meta,
+        };
+      },
       providesTags: [tagTypes.blog],
     }),
     getSingleBlog: build.query({
@@ -35,10 +45,9 @@ export const blogApi = baseApi.injectEndpoints({
       invalidatesTags: [tagTypes.blog],
     }),
     deleteBlog: build.mutation({
-      query: (data) => ({
-        url: `${BLOG_URL}/`,
+      query: (id) => ({
+        url: `${BLOG_URL}/${id}`,
         method: "DELETE",
-        data: data,
       }),
       invalidatesTags: [tagTypes.blog],
     }),
