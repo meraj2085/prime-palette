@@ -1,6 +1,6 @@
 import { tagTypes } from "../tagTypes";
 import { baseApi } from "./baseApi";
-const FAQ_URL = "/blog";
+const FAQ_URL = "/faq";
 
 export const faqApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
