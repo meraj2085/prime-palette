@@ -67,5 +67,4 @@ export const {
   useGetAllUsersQuery,
   useGetSingleUserQuery,
   useUpdateUserMutation,
-  useUpdateUSerMutation,
 } = userApi;

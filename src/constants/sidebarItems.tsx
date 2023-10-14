@@ -1,20 +1,21 @@
 import type { MenuProps } from "antd";
 import {
-  ProfileOutlined,
   TableOutlined,
   AppstoreOutlined,
-  ScheduleOutlined,
-  ThunderboltOutlined,
-  CreditCardOutlined,
-  FileTextOutlined,
   UserOutlined,
   BugOutlined,
   GoldOutlined,
+  HomeOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
 import { USER_ROLE } from "./role";
 export const sidebarItems = (role: string) => {
   const adminSidebarItems: MenuProps["items"] = [
+    {
+      label: <Link href="/">Back To Website</Link>,
+      icon: <HomeOutlined />,
+      key: `/`,
+    },
     {
       label: (
         <Link href={`/dashboard/${role}/userManagement`}>User Management</Link>
@@ -23,12 +24,20 @@ export const sidebarItems = (role: string) => {
       key: `/dashboard/${role}/userManagement`,
     },
     {
-      label: <Link href={`/dashboard/${role}/serviceManagement`}>Service Management</Link>,
+      label: (
+        <Link href={`/dashboard/${role}/serviceManagement`}>
+          Service Management
+        </Link>
+      ),
       icon: <GoldOutlined />,
       key: `/dashboard/${role}/serviceManagement`,
     },
     {
-      label: <Link href={`/dashboard/${role}/bookingManagement`}>Booking Management</Link>,
+      label: (
+        <Link href={`/dashboard/${role}/bookingManagement`}>
+          Booking Management
+        </Link>
+      ),
       icon: <BugOutlined />,
       key: `/dashboard/${role}/bookingManagement`,
     },
@@ -39,13 +48,17 @@ export const sidebarItems = (role: string) => {
       children: [
         {
           label: (
-            <Link href={`/dashboard/${role}/content/blogManagement`}>Blog Management</Link>
+            <Link href={`/dashboard/${role}/content/blogManagement`}>
+              Blog Management
+            </Link>
           ),
           key: `/dashboard/${role}/content/blogManagement`,
         },
         {
           label: (
-            <Link href={`/dashboard/${role}/content/faqManagement`}>FAQ Management</Link>
+            <Link href={`/dashboard/${role}/content/faqManagement`}>
+              FAQ Management
+            </Link>
           ),
           key: `/dashboard/${role}/content/faqManagement`,
         },
@@ -54,6 +67,11 @@ export const sidebarItems = (role: string) => {
   ];
 
   const superAdminSidebarItems: MenuProps["items"] = [
+    {
+      label: <Link href="/">Back To Website</Link>,
+      icon: <HomeOutlined />,
+      key: `/`,
+    },
     {
       label: <Link href={`/${role}/admin`}>Manage Admin</Link>,
       icon: <TableOutlined />,

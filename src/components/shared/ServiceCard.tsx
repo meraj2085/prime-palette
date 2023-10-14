@@ -20,7 +20,9 @@ const ServiceCard = ({ service }: any) => {
           Price: <span className="font-normal">${service?.price}</span>
         </p>
         <p className="py-2 text-gray-700 font-semibold">
-          <span className="font-normal">{service?.description}</span>
+          <span className="font-normal">
+            {(service?.description).slice(0, 180)}...
+          </span>
         </p>
         <div className="flex-grow"></div>
         <div className="button_part flex justify-end">
