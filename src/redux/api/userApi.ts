@@ -50,4 +50,5 @@ export const {
   useGetProfileQuery,
   useUpdateProfileMutation,
   useGetAllUsersQuery,
+  useUpdateUserMutation
 } = userApi;

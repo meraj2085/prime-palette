@@ -43,7 +43,7 @@ const LoginPage = () => {
         <Image src={loginImage} width={500} alt="login image" />
       </Col>
       <Col sm={12} md={8} lg={8}>
-      <h1 className="my-4 text-center text-xl">Login your account</h1>
+        <h1 className="my-4 text-center text-xl">Login your account</h1>
         <div>
           <Form submitHandler={onSubmit}>
             <div>
@@ -61,9 +61,9 @@ const LoginPage = () => {
                 label="Password"
               />
             </div>
-            <Button type="primary" htmlType="submit">
-              Login
-            </Button>
+            <div className="flex justify-center">
+              <Button htmlType="submit">Login</Button>
+            </div>
           </Form>
         </div>
       </Col>

@@ -112,12 +112,16 @@ const UserManagementPage = () => {
       <UMBreadCrumb
         items={[
           {
-            label: "super_admin",
-            link: "/super_admin",
+            label: "Admin",
+            link: "/dashboard/admin",
+          },
+          {
+            label: "Users",
+            link: "/dashboard/admin/userManagement",
           },
         ]}
       />
-      <ActionBar title="Admin List">
+      <ActionBar title="Users List">
         <Input
           size="large"
           placeholder="Search"
@@ -127,8 +131,8 @@ const UserManagementPage = () => {
           }}
         />
         <div>
-          <Link href="/super_admin/admin/create">
-            <Button>Create Admin</Button>
+          <Link href="/dashboard/admin/userManagement/create">
+            <Button>Create User</Button>
           </Link>
           {(!!sortBy || !!sortOrder || !!searchTerm) && (
             <Button style={{ margin: "0px 5px" }} onClick={resetFilters}>

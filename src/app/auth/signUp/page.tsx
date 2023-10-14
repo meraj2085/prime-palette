@@ -73,15 +73,25 @@ const SignUpPage = () => {
             </div>
             <div className="mt-4">
               <FormInput
+                name="mobileNumber"
+                type="text"
+                size="large"
+                label="Mobile Number"
+              />
+            </div>
+            <div className="mt-4">
+              <FormInput
                 name="password"
                 type="password"
                 size="large"
                 label="Password"
               />
             </div>
-            <Button className="mt-4" type="primary" htmlType="submit">
-              Login
-            </Button>
+            <div className="flex justify-center">
+              <Button className="mt-4" htmlType="submit">
+                Login
+              </Button>
+            </div>
           </Form>
         </div>
       </Col>
