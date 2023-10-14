@@ -67,6 +67,17 @@ const BookingManagementPage = () => {
     {
       title: "Status",
       dataIndex: "appointment_status",
+      render: function (data: any) {
+        if (data === "pending") {
+          return <span style={{ color: "#8384BF" }}>{data}</span>;
+        } else if (data === "approved") {
+          return <span style={{ color: "green" }}>{data}</span>;
+        } else if (data === "rejected") {
+          return <span style={{ color: "#e63946" }}>{data}</span>;
+        } else if (data === "cancelled") {
+          return <span style={{ color: "#403d39" }}>{data}</span>;
+        }
+      },
     },
     {
       title: "Action",
