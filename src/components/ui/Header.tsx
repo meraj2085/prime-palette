@@ -27,7 +27,7 @@ const Header = () => {
 
   const logOut = () => {
     removeUserInfo(authKey);
-    router.push("/login");
+    router.push("/auth/login");
   };
 
   const items: MenuProps["items"] = [

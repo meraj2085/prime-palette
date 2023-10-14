@@ -43,7 +43,7 @@ const NavBar = () => {
           <div className="flex-1 md:flex md:items-center md:gap-12">
             <Link className="block text-teal-600" href="/">
               <span className="sr-only">Home</span>
-              <Image src={primePalette} width={49} alt="University image" />
+              <Image src={primePalette} width={49} alt="Prime palette logo" />
             </Link>
           </div>
 
@@ -97,6 +97,16 @@ const NavBar = () => {
                       href="/booking"
                     >
                       Booking
+                    </Link>
+                  </li>
+                )}
+                {role && (role === "admin" || role === "super_admin") && (
+                  <li>
+                    <Link
+                      className="text-gray-500 transition hover:text-gray-500/75"
+                      href={`/dashboard/${role}`}
+                    >
+                      Dashboard
                     </Link>
                   </li>
                 )}
