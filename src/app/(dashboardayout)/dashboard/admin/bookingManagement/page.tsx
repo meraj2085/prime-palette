@@ -50,6 +50,13 @@ const BookingManagementPage = () => {
       dataIndex: "address",
     },
     {
+      title: "Service",
+      dataIndex: "serviceId",
+      render: function (serviceId: any) {
+        return serviceId.name;
+      },
+    },
+    {
       title: "Appointment Date",
       dataIndex: "appointment_date",
       render: function (data: any) {
@@ -67,7 +74,7 @@ const BookingManagementPage = () => {
       render: function (data: any) {
         return (
           <>
-            <Link href={`/dashboard/admin/serviceManagement/edit/${data}`}>
+            <Link href={`/dashboard/admin/bookingManagement/edit/${data}`}>
               <Button
                 style={{
                   margin: "0px 5px",

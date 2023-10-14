@@ -16,6 +16,7 @@ const FormDatePicker = ({
   label,
   onChange,
   size = "large",
+  value,
 }: DatePikerProps) => {
   const { control, setValue } = useFormContext();
 
@@ -37,6 +38,7 @@ const FormDatePicker = ({
         control={control}
         render={({ field }) => (
           <DatePicker
+            value={field.value ? dayjs(field.value) : undefined}
             size={size}
             onChange={handleOnChange}
             style={{ width: "100%" }}

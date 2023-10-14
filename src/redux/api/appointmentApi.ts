@@ -41,6 +41,14 @@ export const appointmentApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.appointment],
     }),
+    updateScheduleAndStatus: build.mutation({
+      query: (data) => ({
+        url: `${APPOINTMENT_API}/updateScheduleAndStatus`,
+        method: "PATCH",
+        data: data,
+      }),
+      invalidatesTags: [tagTypes.appointment],
+    }),
   }),
 });
 
@@ -50,4 +58,5 @@ export const {
   useUserAppointmentsQuery,
   useUpdateAppointmentStatusMutation,
   useGetAllAppointmentQuery,
+  useUpdateScheduleAndStatusMutation
 } = appointmentApi;
