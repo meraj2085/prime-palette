@@ -3,9 +3,11 @@
 import Loading from "@/app/loading";
 import BreadCrumb from "@/components/ui/BreadCumb";
 import {
-  useAddCommentMutation,
-  useSingleServiceQuery,
-} from "@/redux/api/serviceApi";
+  useAddReviewMutation,
+  useGetReviewsQuery,
+} from "@/redux/api/reviewApi";
+import { useSingleServiceQuery } from "@/redux/api/serviceApi";
+import { getUserInfo } from "@/services/auth.service";
 import { message } from "antd";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,21 +17,26 @@ type IDProps = {
 };
 const ServiceDetailsPage = ({ params }: IDProps) => {
   const { id } = params;
-  const { data, isLoading } = useSingleServiceQuery(id);
-  const [addComment] = useAddCommentMutation();
+  const { userId } = getUserInfo() as any;
 
+  const { data, isLoading } = useSingleServiceQuery(id);
+  const { data: reviews, isLoading: isReviewLoading } = useGetReviewsQuery(id);
+  console.log(reviews);
+
+  const [addReview] = useAddReviewMutation();
   const handleAddComment = async (e: any) => {
     e.preventDefault();
     const comment = e.target.message.value;
     const options = {
-      id: data?._id,
+      user_id: userId,
+      service_id: data?._id,
       comment: comment,
     };
-    const response = await addComment(options).unwrap();
+    const response = await addReview(options).unwrap();
     if (response?._id) {
-      message.success("Comment added successfully");
+      message.success("Review added successfully");
     } else {
-      message.error("Failed to add comment");
+      message.error("Failed to add review");
     }
   };
 
@@ -111,7 +118,7 @@ const ServiceDetailsPage = ({ params }: IDProps) => {
           <div className="my-5 md:my-10 flex flex-col md:flex-row md:justify-between gap-5 md:gap-20">
             <div className="md:mt-3 md:w-1/2">
               {" "}
-              {data?.comments.map((comment: any, index: any) => (
+              {reviews?.map((review: any, index: any) => (
                 <article
                   key={index}
                   className="rounded-xl shadow-sm border border-gray-200 p-4 my-3 min-w-[300px] md:min-w-[500px]"
@@ -121,16 +128,17 @@ const ServiceDetailsPage = ({ params }: IDProps) => {
                       height={100}
                       width={100}
                       alt="Developer"
-                      src="https://images.unsplash.com/photo-1614644147724-2d4785d69962?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80"
+                      src="https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2864&q=80"
                       className="h-16 w-16 rounded-full object-cover"
                     />
                     <div>
                       <h3 className="text-md font-medium text-gray-800">
-                        Claire Mac
+                        {review?.user_id?.name?.firstName}{" "}
+                        {review?.user_id?.name?.lastName}
                       </h3>
                       <div className="flow-root">
                         <p className="py-2 leading-none text-md font-medium text-gray-400">
-                          {comment}
+                          {review?.comment}
                         </p>
                       </div>
                     </div>
