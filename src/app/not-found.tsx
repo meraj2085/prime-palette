@@ -1,16 +1,19 @@
-import { Button, Row } from "antd";
+"use client";
+
+import { useRouter } from "next/navigation";
 
 const NotFoundPage = () => {
+  const router = useRouter();
+  setTimeout(() => {
+    router.push("/");
+  }, 3000);
+
   return (
-    <Row
-      justify="center"
-      align="middle"
-      style={{
-        height: "100vh",
-      }}
-    >
-      <h1>404!!! Page Not Found!</h1>
-    </Row>
+    <div className="grid h-screen px-4 bg-white place-content-center">
+      <h1 className="tracking-widest text-gray-500 uppercase">
+        404 | Not Found
+      </h1>
+    </div>
   );
 };
 
