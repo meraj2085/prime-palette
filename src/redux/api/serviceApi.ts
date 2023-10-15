@@ -43,14 +43,6 @@ export const serviceApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.service],
     }),
-    addComment: build.mutation({
-      query: (UpdateData) => ({
-        url: `${SERVICE_URL}/addComment`,
-        method: "PATCH",
-        data: UpdateData,
-      }),
-      invalidatesTags: [tagTypes.service],
-    }),
     addService: build.mutation({
       query: (data) => ({
         url: `${SERVICE_URL}`,
@@ -65,7 +57,6 @@ export const serviceApi = baseApi.injectEndpoints({
 export const {
   useServicesQuery,
   useSingleServiceQuery,
-  useAddCommentMutation,
   useAddServiceMutation,
   useUpdateServiceMutation,
   useDeleteServiceMutation,
