@@ -2,6 +2,7 @@
 
 import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
+import FormSelectField from "@/components/Forms/FormSelectField";
 import ActionBar from "@/components/ui/ActionBar";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import {
@@ -23,6 +24,7 @@ const EditServicePage = ({ params }: IDProps) => {
   const [updateService] = useUpdateServiceMutation();
 
   const onSubmit = async (values: any) => {
+    values.availability = values.availability === "true" ? true : false;
     try {
       const data = { id: id, data: values };
       const response = await updateService(data).unwrap();
@@ -41,7 +43,19 @@ const EditServicePage = ({ params }: IDProps) => {
     name: data?.name || "",
     price: data?.price || "",
     description: data?.description || "",
+    availability: String(data?.availability) || "",
   };
+
+  const availabilityStatus = [
+    {
+      label: "Available",
+      value: "true",
+    },
+    {
+      label: "Not Available",
+      value: "false",
+    },
+  ];
 
   return (
     <div>
@@ -75,12 +89,21 @@ const EditServicePage = ({ params }: IDProps) => {
             }}
           >
             <Row gutter={[16, 16]}>
-              <Col xs={24} sm={12} md={12} lg={12} style={{ margin: "10px 0" }}>
+              <Col xs={24} sm={12} md={24} lg={24} style={{ margin: "10px 0" }}>
                 <FormInput
                   name="name"
                   type="text"
                   size="large"
                   label="Service Name"
+                />
+              </Col>
+              <Col xs={24} sm={12} md={12} lg={12} style={{ margin: "10px 0" }}>
+                <FormSelectField
+                  size="large"
+                  name="availability"
+                  options={availabilityStatus}
+                  label="Availability"
+                  placeholder="Select"
                 />
               </Col>
               <Col xs={24} sm={12} md={12} lg={12} style={{ margin: "10px 0" }}>
