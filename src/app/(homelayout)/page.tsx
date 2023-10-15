@@ -4,6 +4,8 @@ import Image from "next/image";
 import PopularServices from "@/components/PopularServices";
 import AboutUs from "@/components/AboutUs";
 import Testimonials from "@/components/Testimonials";
+import Stats from "@/components/Stats";
+import Gallery from "@/components/Gallery";
 
 export default function Home() {
   return (
@@ -76,6 +78,8 @@ export default function Home() {
       <PopularServices />
       <AboutUs />
       <Testimonials />
+      <Stats />
+      <Gallery />
     </>
   );
 }
