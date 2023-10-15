@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
+import SetupAnalytics from "../../../../assets/SetupAnalytics.png";
+import Image from "next/image";
 
-const SuperAdminPage = () => {
-    return (
-        <div>
-            SuperAdmin
-        </div>
-    );
+const AdminPage = () => {
+  return (
+    <div className="flex justify-center">
+      <Image src={SetupAnalytics} alt="" width={670} />
+    </div>
+  );
 };
 
-export default SuperAdminPage;
+export default AdminPage;

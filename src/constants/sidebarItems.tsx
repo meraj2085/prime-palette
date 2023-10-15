@@ -73,9 +73,11 @@ export const sidebarItems = (role: string) => {
       key: `/`,
     },
     {
-      label: <Link href={`/${role}/admin`}>Manage Admin</Link>,
+      label: (
+        <Link href={`/dashboard/${role}/adminManagement`}>Manage Admin</Link>
+      ),
       icon: <TableOutlined />,
-      key: `/dashboard/${role}/admin`,
+      key: `/dashboard/${role}/adminManagement`,
     },
   ];
 

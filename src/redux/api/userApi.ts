@@ -21,6 +21,22 @@ export const userApi = baseApi.injectEndpoints({
       },
       providesTags: [tagTypes.user],
     }),
+    getAdmins: build.query({
+      query: (arg: Record<string, any>) => {
+        return {
+          url: `${USER_URL}/getAdmins`,
+          method: "GET",
+          params: arg,
+        };
+      },
+      transformResponse: (response: IUser[], meta: IMeta) => {
+        return {
+          admins: response,
+          meta,
+        };
+      },
+      providesTags: [tagTypes.user],
+    }),
     updateUser: build.mutation({
       query: (id) => ({
         url: `${USER_URL}/${id}`,
@@ -50,7 +66,7 @@ export const userApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.user],
     }),
-    updateUSer: build.mutation({
+    updateUserAdmin: build.mutation({
       query: (data) => ({
         url: `${USER_URL}/${data.id}`,
         method: "PATCH",
@@ -67,4 +83,6 @@ export const {
   useGetAllUsersQuery,
   useGetSingleUserQuery,
   useUpdateUserMutation,
+  useGetAdminsQuery,
+  useUpdateUserAdminMutation,
 } = userApi;

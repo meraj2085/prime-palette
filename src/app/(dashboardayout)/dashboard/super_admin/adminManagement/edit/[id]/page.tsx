@@ -1,7 +1,9 @@
 "use client";
 
+import Loading from "@/app/loading";
 import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
+import FormSelectField from "@/components/Forms/FormSelectField";
 import ActionBar from "@/components/ui/ActionBar";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import {
@@ -16,7 +18,7 @@ type IDProps = {
   params: any;
 };
 
-const EditUserPage = ({ params }: IDProps) => {
+const EditAdminPage = ({ params }: IDProps) => {
   const { id } = params;
   const router = useRouter();
   const { data, isLoading } = useGetSingleUserQuery(id);
@@ -27,10 +29,10 @@ const EditUserPage = ({ params }: IDProps) => {
       const data = { id: id, data: values };
       const response = await updateUserAdmin(data).unwrap();
       if (response?._id) {
-        router.push("/dashboard/admin/userManagement");
-        message.success("User updated successfully");
+        router.push("/dashboard/super_admin/adminManagement");
+        message.success("Admin updated successfully");
       } else {
-        message.error("Failed to update user");
+        message.error("Failed to update admin");
       }
     } catch (err: any) {
       message.error(err.message);
@@ -44,28 +46,41 @@ const EditUserPage = ({ params }: IDProps) => {
     },
     email: data?.email || "",
     mobileNumber: data?.mobileNumber || "",
+    role: data?.role || "",
   };
 
+  const roleOptions = [
+    {
+      label: "User",
+      value: "user",
+    },
+    {
+      label: "Admin",
+      value: "admin",
+    },
+  ];
+
+  if (isLoading) return <Loading />;
   return (
     <div>
       <UMBreadCrumb
         items={[
           {
-            label: "Admin",
-            link: "/dashboard/admin",
+            label: "Super Admin",
+            link: "/dashboard/super_admin",
           },
           {
-            label: "Users",
-            link: "/dashboard/admin/userManagement",
+            label: "Admins",
+            link: "/dashboard/super_admin/adminManagement",
           },
           {
             label: "Update",
-            link: `/dashboard/admin/userManagement/edit/${data?.id}`,
+            link: `/dashboard/super_admin/adminManagement/edit/${data?.id}`,
           },
         ]}
       />
 
-      <ActionBar title="Update User" />
+      <ActionBar title="Update Admin" />
       <div className="flex justify-center">
         <Form submitHandler={onSubmit} defaultValues={defaultValues}>
           <div
@@ -92,11 +107,20 @@ const EditUserPage = ({ params }: IDProps) => {
                   size="large"
                 />
               </Col>
-              <Col xs={24} sm={12} md={24} lg={24} style={{ margin: "10px 0" }}>
+              <Col xs={24} sm={12} md={12} lg={12} style={{ margin: "10px 0" }}>
                 <FormInput
                   name="mobileNumber"
                   label="Mobile number"
                   size="large"
+                />
+              </Col>
+              <Col xs={24} sm={12} md={12} lg={12} style={{ margin: "10px 0" }}>
+                <FormSelectField
+                  size="large"
+                  name="role"
+                  options={roleOptions}
+                  label="Role"
+                  placeholder="Select"
                 />
               </Col>
               <Col xs={24} sm={12} md={24} lg={24} style={{ margin: "10px 0" }}>
@@ -113,4 +137,4 @@ const EditUserPage = ({ params }: IDProps) => {
   );
 };
 
-export default EditUserPage;
+export default EditAdminPage;
