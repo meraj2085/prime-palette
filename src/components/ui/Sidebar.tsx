@@ -8,8 +8,9 @@ import { USER_ROLE } from "@/constants/role";
 import { getUserInfo } from "@/services/auth.service";
 import { useAppSelector } from "@/redux/hooks";
 import { SiderTheme } from "antd/es/layout/Sider";
-import universityImage from "../../assets/university.png";
+import primePalette from "../../assets/prime-palette.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const SideBar = () => {
   const theme = useAppSelector((state) => state.config.theme);
@@ -43,19 +44,10 @@ const SideBar = () => {
           // backgroundColor: "#cdb4db",
         }}
       >
-        <div
-          style={{
-            color: "#A5C5E9",
-            fontSize: "2rem",
-            textAlign: "center",
-            fontWeight: "bold",
-            margin: "4px",
-            // padding: "10px 0px",
-            cursor: "pointer",
-          }}
-        >
-          {/* UMS */}
-          <Image src={universityImage} width={49} alt="University image" />
+        <div className="flex justify-center cursor-pointer m-2">
+          <Link href={`/dashboard/${role}`}>
+            <Image src={primePalette} width={49} alt="Prime palette logo" />
+          </Link>
         </div>
         <Menu
           style={{

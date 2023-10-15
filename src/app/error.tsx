@@ -1,19 +1,12 @@
 "use client";
 
-import { Row } from "antd";
-
 const ErrorPage = () => {
   return (
-    <Row
-      justify="center"
-      align="middle"
-      style={{
-        height: "100vh",
-        color: "red",
-      }}
-    >
-      <h1>Something Went Wrong!</h1>
-    </Row>
+    <div className="grid h-screen px-4 bg-white place-content-center">
+      <h1 className="tracking-widest text-gray-500 uppercase">
+        404 | Something went wrong
+      </h1>
+    </div>
   );
 };
 

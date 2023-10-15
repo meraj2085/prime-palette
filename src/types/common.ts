@@ -27,3 +27,44 @@ export interface IService {
   availability: boolean;
   image_url: string;
 }
+
+type UserName = {
+  firstName: string;
+  lastName: string;
+};
+
+export enum UserRoles {
+  USER = "user",
+  ADMIN = "admin",
+  SUPER_ADMIN = "super_admin",
+}
+
+export type IUser = {
+  id?: string;
+  name?: UserName;
+  email?: string;
+  mobileNumber?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
+};
+
+export type IBlog = {
+  id?: string;
+  image_url?: string;
+  title?: string;
+  description?: string;
+  views?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
+};
+
+export type IFaq = {
+  id?: string;
+  question?: string;
+  answer?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
+};

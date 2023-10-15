@@ -14,7 +14,8 @@ import { authKey } from "@/constants/storageKey";
 import { useRouter } from "next/navigation";
 import { FireOutlined, BugOutlined } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { getFromLocalStorage, setToLocalStorage } from "@/utils/local-storage";
+import { getFromLocalStorage, setToLocalStorage } from "@/utils/localStorage";
+import Link from "next/link";
 const { Header: AntHeader } = Layout;
 
 const Header = () => {
@@ -27,21 +28,30 @@ const Header = () => {
 
   const logOut = () => {
     removeUserInfo(authKey);
-    router.push("/login");
+    router.push("/auth/login");
   };
 
   const items: MenuProps["items"] = [
     {
       key: "0",
       label: (
-        <Button onClick={logOut} type="text" danger>
-          Logout
-        </Button>
+        <Link href="/dashboard/profile">
+          <p className="bg-gray-600 rounded-md py-2 px-10 text-white text-center">
+            Profile
+          </p>
+        </Link>
       ),
     },
     {
       key: "0",
-      label: <Button type="text">{role}</Button>,
+      label: (
+        <p
+          className="bg-red-300 rounded-md py-2 px-10 text-white text-center"
+          onClick={logOut}
+        >
+          Logout
+        </p>
+      ),
     },
   ];
 
