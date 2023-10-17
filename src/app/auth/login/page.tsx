@@ -25,6 +25,8 @@ const LoginPage = () => {
       if (res?.accessToken) {
         router.push("/");
         message.success("User logged in successfully!");
+      } else {
+        message.error("Email or password is incorrect!");
       }
       storeUserInfo({ accessToken: res?.accessToken });
     } catch (err: any) {
