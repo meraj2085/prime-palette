@@ -155,17 +155,23 @@ const ServiceDetailsPage = ({ params }: IDProps) => {
                 className="block p-2.5 w-full md:w-[400px] h-[150px] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-600 focus:border-teal-600"
                 placeholder="Write your thoughts here..."
               ></textarea>
-              <div className="flex justify-center mt-6">
-                <button
-                  type="submit"
-                  className="group relative inline-block text-sm font-medium text-teal-600 focus:outline-none active:text-teal-600"
-                >
-                  <span className="absolute inset-0 border border-current rounded-md"></span>
-                  <span className="block border border-current bg-white px-8 md:px-12 py-3 rounded-md transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1">
-                    Submit
-                  </span>
-                </button>
-              </div>
+              {userId ? (
+                <div className="flex justify-center mt-6">
+                  <button
+                    type="submit"
+                    className="group relative inline-block text-sm font-medium text-teal-600 focus:outline-none active:text-teal-600"
+                  >
+                    <span className="absolute inset-0 border border-current rounded-md"></span>
+                    <span className="block border border-current bg-white px-8 md:px-12 py-3 rounded-md transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1">
+                      Submit
+                    </span>
+                  </button>
+                </div>
+              ) : (
+                <div className="flex justify-center mt-2">
+                  <small className="text-violet-400">*Please login to comment</small>
+                </div>
+              )}
             </form>
           </div>
         </div>

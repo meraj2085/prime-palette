@@ -9,9 +9,20 @@ import { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 import Loading from "@/app/loading";
 import { useAuth } from "@/utils/checkAuth";
+import { useRouter } from "next/navigation";
+import { useAppSelector } from "@/redux/hooks";
+import { IUser } from "@/types";
 
 const FeedbackPage = () => {
   const desc = ["terrible", "bad", "normal", "good", "wonderful"];
+  const user = useAppSelector((state): IUser | undefined => state.user.user);
+
+  const defaultValues = {
+    name: `${user?.name?.firstName} ${user?.name?.lastName}` || "",
+    email: user?.email || "",
+  };
+
+  const router = useRouter();
   const [value, setValue] = useState(1);
   const [addFeedback] = useAddFeedbackMutation();
   type FormValues = {
@@ -26,6 +37,7 @@ const FeedbackPage = () => {
       const response = await addFeedback(data).unwrap();
       if (response?._id) {
         message.success("Thank you for your feedback");
+        router.push("/");
       }
     } catch (err: any) {
       console.error(err.message);
@@ -48,7 +60,7 @@ const FeedbackPage = () => {
         </div>
         <div className="mt-8 md:mt-16 px-5 py-10 bg-slate-100 rounded-lg border-solid border border-gray-300">
           <div>
-            <Form submitHandler={onSubmit}>
+            <Form submitHandler={onSubmit} defaultValues={defaultValues}>
               <div>
                 <FormInput
                   name="name"
@@ -74,9 +86,7 @@ const FeedbackPage = () => {
               >
                 <FormTextArea name="feedback" label="Feedback" rows={6} />
               </div>
-              <Button type="primary" htmlType="submit">
-                Submit
-              </Button>
+              <Button htmlType="submit">Submit</Button>
             </Form>
           </div>
         </div>
