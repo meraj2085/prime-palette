@@ -60,6 +60,17 @@ export type IBlog = {
   __v?: number;
 };
 
+export type INews = {
+  id?: string;
+  image_url?: string;
+  title?: string;
+  description?: string;
+  views?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
+};
+
 export type IFaq = {
   id?: string;
   question?: string;

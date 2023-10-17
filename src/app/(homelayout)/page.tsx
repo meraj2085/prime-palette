@@ -7,6 +7,8 @@ import Testimonials from "@/components/Testimonials";
 import Stats from "@/components/Stats";
 import Gallery from "@/components/Gallery";
 import UpcomingServices from "@/components/UpcomingServices";
+import News from "@/components/News";
+import Overview from "@/components/Overview";
 
 export default function Home() {
   return (
@@ -79,6 +81,8 @@ export default function Home() {
       <PopularServices />
       <UpcomingServices />
       <AboutUs />
+      <News />
+      <Overview />
       <Testimonials />
       <Stats />
       <Gallery />
