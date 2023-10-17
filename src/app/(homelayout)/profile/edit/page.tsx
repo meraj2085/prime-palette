@@ -9,6 +9,8 @@ import BreadCrumb from "@/components/ui/BreadCumb";
 import { IUser } from "@/types";
 import { useUpdateProfileMutation } from "@/redux/api/userApi";
 import { useRouter } from "next/navigation";
+import Loading from "@/app/loading";
+import { useAuth } from "@/utils/checkAuth";
 
 const ProfileEditPage = () => {
   const router = useRouter();
@@ -37,6 +39,9 @@ const ProfileEditPage = () => {
       console.error(err.message);
     }
   };
+
+  const userAuth = useAuth();
+  if (userAuth) return <Loading />;
 
   return (
     <section className="bg-white max-w-[1200px] mx-auto">

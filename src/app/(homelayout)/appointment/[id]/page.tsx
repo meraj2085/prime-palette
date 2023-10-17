@@ -4,16 +4,15 @@ import Loading from "@/app/loading";
 import Form from "@/components/Forms/Form";
 import FormDatePicker from "@/components/Forms/FormDatePicker";
 import FormInput from "@/components/Forms/FormInput";
-import FormSelectField from "@/components/Forms/FormSelectField";
 import BreadCrumb from "@/components/ui/BreadCumb";
 import { useAddAppointmentMutation } from "@/redux/api/appointmentApi";
 import { useSingleServiceQuery } from "@/redux/api/serviceApi";
 import { Button, Col, Row, message } from "antd";
-import { redirect, useRouter } from "next/navigation";
-import dayjs from "dayjs";
+import { useRouter } from "next/navigation";
 import { getUserInfo } from "@/services/auth.service";
 import { useAppSelector } from "@/redux/hooks";
 import { IUser } from "@/types";
+import { useAuth } from "@/utils/checkAuth";
 
 type IDProps = {
   params: any;
@@ -53,7 +52,9 @@ const AppointmentPage = ({ params }: IDProps) => {
     }
   };
 
-  if (isLoading) return <Loading />;
+  const userAuth = useAuth();
+
+  if (isLoading || userAuth) return <Loading />;
 
   return (
     <section className="bg-white my-10 max-w-[1200px] mx-auto">

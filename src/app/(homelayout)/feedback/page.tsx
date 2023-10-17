@@ -7,6 +7,8 @@ import { Button, message } from "antd";
 import { Rate } from "antd";
 import { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
+import Loading from "@/app/loading";
+import { useAuth } from "@/utils/checkAuth";
 
 const FeedbackPage = () => {
   const desc = ["terrible", "bad", "normal", "good", "wonderful"];
@@ -29,6 +31,8 @@ const FeedbackPage = () => {
       console.error(err.message);
     }
   };
+  const userAuth = useAuth();
+  if (userAuth) return <Loading />;
 
   return (
     <section className="bg-white max-w-[1200px] mx-auto">
