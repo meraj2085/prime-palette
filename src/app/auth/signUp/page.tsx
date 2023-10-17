@@ -1,6 +1,6 @@
 "use client";
 import { Button, Col, Row, message } from "antd";
-import loginImage from "../../../assets/register-pana.png";
+import loginImage from "../../../../public/assets/register-pana.png";
 import Image from "next/image";
 import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";

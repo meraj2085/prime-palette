@@ -1,5 +1,5 @@
 import RecentServices from "@/components/PopularServices";
-import heroImage from "../../assets/heroImage.png";
+import heroImage from "../../../public/assets/heroImage.png";
 import Image from "next/image";
 import PopularServices from "@/components/PopularServices";
 import AboutUs from "@/components/AboutUs";

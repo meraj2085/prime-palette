@@ -1,5 +1,5 @@
 import Image from "next/image";
-import primePalette from "../../assets/prime-palette.png";
+import primePalette from "../../../public/assets/prime-palette.png";
 
 const Footer = () => {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import editProfileIcon from "../../../assets/editProfileIcon.png";
+import editProfileIcon from "../../../../public/assets/editProfileIcon.png";
 import Image from "next/image";
 import { Tooltip } from "antd";
 import { useAppSelector } from "@/redux/hooks";
