@@ -46,7 +46,7 @@ const SideBar = () => {
       >
         <div className="flex justify-center cursor-pointer m-2">
           <Link href={`/dashboard/${role}`}>
-            <Image src={primePalette} width={49} alt="Prime palette logo" />
+            <Image src="/assets/prime-palette.png" height={49} width={49} alt="Prime palette logo" />
           </Link>
         </div>
         <Menu
