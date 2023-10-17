@@ -51,6 +51,22 @@ export const serviceApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.service],
     }),
+    upcomingServices: build.query({
+      query: (arg: Record<string, any>) => {
+        return {
+          url: `${SERVICE_URL}/getAllUpcomingServices`,
+          method: "GET",
+          params: arg,
+        };
+      },
+      transformResponse: (response: IService[], meta: IMeta) => {
+        return {
+          upcomingServices: response,
+          meta,
+        };
+      },
+      providesTags: [tagTypes.service],
+    }),
   }),
 });
 
@@ -60,4 +76,5 @@ export const {
   useAddServiceMutation,
   useUpdateServiceMutation,
   useDeleteServiceMutation,
+  useUpcomingServicesQuery,
 } = serviceApi;

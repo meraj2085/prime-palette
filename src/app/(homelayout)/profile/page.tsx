@@ -7,9 +7,13 @@ import { Tooltip } from "antd";
 import { useAppSelector } from "@/redux/hooks";
 import Link from "next/link";
 import BreadCrumb from "@/components/ui/BreadCumb";
+import Loading from "@/app/loading";
+import { useAuth } from "@/utils/checkAuth";
 
 const ProfilePage = () => {
   const user = useAppSelector((state) => state.user.user);
+  const userAuth = useAuth();
+  if (userAuth) return <Loading />;
   return (
     <div className="bg-white max-w-[1200px] mx-auto">
       <div className="md:mb-2 mb-0 mx-5 md:mx-0 mt-10">

@@ -6,6 +6,10 @@ import AboutUs from "@/components/AboutUs";
 import Testimonials from "@/components/Testimonials";
 import Stats from "@/components/Stats";
 import Gallery from "@/components/Gallery";
+import UpcomingServices from "@/components/UpcomingServices";
+import News from "@/components/News";
+import Overview from "@/components/Overview";
+import Category from "@/components/Category";
 
 export default function Home() {
   return (
@@ -76,7 +80,11 @@ export default function Home() {
         </div>
       </div>
       <PopularServices />
+      <UpcomingServices />
       <AboutUs />
+      <News />
+      <Category />
+      <Overview />
       <Testimonials />
       <Stats />
       <Gallery />

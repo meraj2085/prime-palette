@@ -29,6 +29,8 @@ const SignUpPage = () => {
       if (res?.accessToken) {
         router.push("/");
         message.success("User signUp successfully!");
+      } else {
+        message.error("Failed to signUp!");
       }
       storeUserInfo({ accessToken: res?.accessToken });
     } catch (err: any) {

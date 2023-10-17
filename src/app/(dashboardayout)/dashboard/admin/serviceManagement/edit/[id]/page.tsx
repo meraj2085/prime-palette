@@ -24,6 +24,7 @@ const EditServicePage = ({ params }: IDProps) => {
   const [updateService] = useUpdateServiceMutation();
 
   const onSubmit = async (values: any) => {
+    values.price = Number(values.price);
     values.availability = values.availability === "true" ? true : false;
     try {
       const data = { id: id, data: values };

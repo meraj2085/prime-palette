@@ -38,7 +38,6 @@ const ServiceManagementPage = () => {
   });
 
   if (!!debouncedSearchTerm) {
-    console.log("indise bro");
     query["searchTerm"] = debouncedSearchTerm;
   }
   const { data, isLoading } = useServicesQuery({ ...query });
@@ -47,9 +46,7 @@ const ServiceManagementPage = () => {
 
   const deleteHandler = async (id: string) => {
     try {
-      console.log(id);
       const response = await deleteService(id).unwrap();
-      console.log(response);
       if (response?.id) {
         message.success("Service deleted successfully");
       } else {
@@ -124,7 +121,6 @@ const ServiceManagementPage = () => {
     },
   ];
   const onPaginationChange = (page: number, pageSize: number) => {
-    console.log("Page:", page, "PageSize:", pageSize);
     setPage(page);
     setSize(pageSize);
   };
