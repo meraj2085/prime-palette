@@ -30,7 +30,6 @@ const AdminManagementPage = () => {
   });
 
   if (!!debouncedSearchTerm) {
-    console.log("indise bro");
     query["searchTerm"] = debouncedSearchTerm;
   }
   const { data, isLoading } = useGetAdminsQuery({ ...query });
@@ -82,13 +81,11 @@ const AdminManagementPage = () => {
     },
   ];
   const onPaginationChange = (page: number, pageSize: number) => {
-    console.log("Page:", page, "PageSize:", pageSize);
     setPage(page);
     setSize(pageSize);
   };
   const onTableChange = (pagination: any, filter: any, sorter: any) => {
     const { order, field } = sorter;
-    // console.log(order, field);
     setSortBy(field as string);
     setSortOrder(order === "ascend" ? "asc" : "desc");
   };

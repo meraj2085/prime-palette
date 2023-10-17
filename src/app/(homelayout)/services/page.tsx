@@ -40,7 +40,6 @@ const ServicesPage = () => {
     current,
     pageSize
   ) => {
-    console.log(current, pageSize);
     setSize(pageSize);
   };
 

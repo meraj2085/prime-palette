@@ -21,7 +21,6 @@ const ServiceDetailsPage = ({ params }: IDProps) => {
 
   const { data, isLoading } = useSingleServiceQuery(id);
   const { data: reviews, isLoading: isReviewLoading } = useGetReviewsQuery(id);
-  console.log(reviews);
 
   const [addReview] = useAddReviewMutation();
   const handleAddComment = async (e: any) => {
@@ -97,19 +96,21 @@ const ServiceDetailsPage = ({ params }: IDProps) => {
                 Status: {data?.availability ? "Available" : "Not Available"}
               </dd>
             </dl>
-            <div className="flex justify-end">
-              <Link href={`/appointment/${id}`}>
-                <p className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8B8BCF]">
-                  Book an appointment
-                  <span
-                    aria-hidden="true"
-                    className="block transition-all group-hover:ms-0.5 rtl:rotate-180"
-                  >
-                    &rarr;
-                  </span>
-                </p>
-              </Link>
-            </div>
+            {data?.is_upcoming === false && (
+              <div className="flex justify-end">
+                <Link href={`/appointment/${id}`}>
+                  <p className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8B8BCF]">
+                    Book an appointment
+                    <span
+                      aria-hidden="true"
+                      className="block transition-all group-hover:ms-0.5 rtl:rotate-180"
+                    >
+                      &rarr;
+                    </span>
+                  </p>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
         <div className="mx-4 md:mx-20">

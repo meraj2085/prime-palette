@@ -6,6 +6,7 @@ import AboutUs from "@/components/AboutUs";
 import Testimonials from "@/components/Testimonials";
 import Stats from "@/components/Stats";
 import Gallery from "@/components/Gallery";
+import UpcomingServices from "@/components/UpcomingServices";
 
 export default function Home() {
   return (
@@ -76,6 +77,7 @@ export default function Home() {
         </div>
       </div>
       <PopularServices />
+      <UpcomingServices />
       <AboutUs />
       <Testimonials />
       <Stats />
