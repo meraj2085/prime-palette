@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import primePalette from "../../assets/prime-palette.png";
+import primePalette from "../../../public/assets/prime-palette.png";
 import { getUserInfo, removeUserInfo } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
 import { authKey } from "@/constants/storageKey";

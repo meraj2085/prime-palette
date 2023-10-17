@@ -1,10 +1,10 @@
 import React from "react";
-import fabemiLogo from "../assets/fabemi-logo.png";
-import spoonLogo from "../assets/spoon-logo.png";
-import atlassianLogo from "../assets/atlassian-logo.png";
-import zLogo from "../assets/z-logo.png";
-import appleLogo from "../assets/apple-logo.png";
-import nikonLogo from "../assets/nikon-logo.png";
+import fabemiLogo from "../../public/assets/fabemi-logo.png";
+import spoonLogo from "../../public/assets/spoon-logo.png";
+import atlassianLogo from "../../public/assets/atlassian-logo.png";
+import zLogo from "../../public/assets/z-logo.png";
+import appleLogo from "../../public/assets/apple-logo.png";
+import nikonLogo from "../../public/assets/nikon-logo.png";
 import Image from "next/image";
 
 const Stats = () => {

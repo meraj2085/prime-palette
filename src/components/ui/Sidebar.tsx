@@ -8,7 +8,7 @@ import { USER_ROLE } from "@/constants/role";
 import { getUserInfo } from "@/services/auth.service";
 import { useAppSelector } from "@/redux/hooks";
 import { SiderTheme } from "antd/es/layout/Sider";
-import primePalette from "../../assets/prime-palette.png";
+import primePalette from "../../../public/assets/prime-palette.png";
 import Image from "next/image";
 import Link from "next/link";
 

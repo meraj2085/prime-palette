@@ -1,5 +1,5 @@
 import React from "react";
-import SetupAnalytics from "../../../../assets/SetupAnalytics.png";
+import SetupAnalytics from "../../../../../public/assets/SetupAnalytics.png";
 import Image from "next/image";
 
 const AdminPage = () => {
