@@ -43,7 +43,12 @@ const NavBar = () => {
           <div className="flex-1 md:flex md:items-center md:gap-12">
             <Link className="block text-teal-600" href="/">
               <span className="sr-only">Home</span>
-              <Image src={primePalette} width={49} alt="Prime palette logo" />
+              <Image
+                src="/assets/prime-palette.png"
+                height={49}
+                width={49}
+                alt="Prime palette logo"
+              />
             </Link>
           </div>
 
