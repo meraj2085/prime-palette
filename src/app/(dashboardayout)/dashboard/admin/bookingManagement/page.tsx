@@ -53,7 +53,7 @@ const BookingManagementPage = () => {
       title: "Service",
       dataIndex: "serviceId",
       render: function (serviceId: any) {
-        return serviceId.name;
+        return serviceId?.name;
       },
     },
     {
