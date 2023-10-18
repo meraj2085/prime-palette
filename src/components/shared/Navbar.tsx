@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import primePalette from "../../../public/assets/prime-palette.png";
 import { getUserInfo, removeUserInfo } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
 import { authKey } from "@/constants/storageKey";
@@ -44,7 +43,7 @@ const NavBar = () => {
             <Link className="block text-teal-600" href="/">
               <span className="sr-only">Home</span>
               <Image
-                src="/assets/prime-palette.png"
+                src="https://res.cloudinary.com/dn163fium/image/upload/v1697588920/psog4rriy6tlbcs1edhh.png"
                 height={49}
                 width={49}
                 alt="Prime palette logo"
