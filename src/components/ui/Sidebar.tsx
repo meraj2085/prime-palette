@@ -4,11 +4,9 @@ import { useState } from "react";
 import { ConfigProvider, Layout, Menu, MenuTheme } from "antd";
 const { Sider } = Layout;
 import { sidebarItems } from "@/constants/sidebarItems";
-import { USER_ROLE } from "@/constants/role";
 import { getUserInfo } from "@/services/auth.service";
 import { useAppSelector } from "@/redux/hooks";
 import { SiderTheme } from "antd/es/layout/Sider";
-import primePalette from "../../../public/assets/prime-palette.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -46,7 +44,12 @@ const SideBar = () => {
       >
         <div className="flex justify-center cursor-pointer m-2">
           <Link href={`/dashboard/${role}`}>
-            <Image src="/assets/prime-palette.png" height={49} width={49} alt="Prime palette logo" />
+            <Image
+              src="https://res.cloudinary.com/dn163fium/image/upload/v1697588920/psog4rriy6tlbcs1edhh.png"
+              height={49}
+              width={49}
+              alt="Prime palette logo"
+            />
           </Link>
         </div>
         <Menu
