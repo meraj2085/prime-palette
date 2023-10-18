@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const CategoryCard = ({ card }: any) => {
   return (
-    <Link href={`/services`}>
+    <Link href={`/services/category/${card?._id}`}>
       <article className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
         <div className="flex gap-4 align-middle">
           <span className="inline-block rounded bg-[#8786C6] p-2 text-white">

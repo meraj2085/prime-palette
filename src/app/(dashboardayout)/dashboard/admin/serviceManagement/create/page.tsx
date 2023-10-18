@@ -12,8 +12,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { Button, Col, Row, message } from "antd";
 import { useAddServiceMutation } from "@/redux/api/serviceApi";
+import PPCategoryFields from "@/components/Forms/PPCategoryFields";
+import { useState } from "react";
 
 const CreateServicePage = () => {
+  const [ppCategoryId, setPpCategoryId] = useState<string>();
   const [addService] = useAddServiceMutation();
   const router = useRouter();
 
@@ -21,6 +24,7 @@ const CreateServicePage = () => {
     values.image_url =
       "https://res.cloudinary.com/dn163fium/image/upload/v1697264013/ebej6gnvmtxfc7g6xy6h.jpg";
     values.price = parseInt(values.price);
+    values.category_id = ppCategoryId;
     try {
       const response = await addService(values).unwrap();
       if (response?._id) {
@@ -105,6 +109,20 @@ const CreateServicePage = () => {
                   type="text"
                   size="large"
                   label="Service Price"
+                />
+              </Col>
+
+              <Col
+                className="gutter-row"
+                span={8}
+                style={{
+                  marginBottom: "10px",
+                }}
+              >
+                <PPCategoryFields
+                  name="category_id"
+                  label="Category"
+                  onChange={(e) => setPpCategoryId(e)}
                 />
               </Col>
 

@@ -7,7 +7,7 @@ const Testimonials = () => {
   const [reviews, setReviews] = useState([
     {
       id: 1,
-      text: "Excellent painting service! The team paid attention to detail and transformed my space beautifully.with the professionalism and skill of the painters. Highly recommend for quality work!",
+      text: "Excellent painting service! The team paid attention to detail and transformed my space beautifully. with the professionalism and skill of the painters. Highly recommend for quality work!",
       author: "John Doe",
       role: "Client",
       image:
@@ -102,7 +102,7 @@ const Testimonials = () => {
               </svg>
             </button>
 
-            <div>
+            <div key={reviews[currentIndex].id}>
               <p className="flex items-center text-center text-gray-500 lg:mx-8">
                 {reviews[currentIndex].text}
               </p>

@@ -80,10 +80,10 @@ export default function Home() {
         </div>
       </div>
       <PopularServices />
+      <Category />
       <UpcomingServices />
       <AboutUs />
       <News />
-      <Category />
       <Overview />
       <Testimonials />
       <Stats />
