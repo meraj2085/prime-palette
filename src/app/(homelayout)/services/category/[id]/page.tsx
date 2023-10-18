@@ -134,6 +134,10 @@ const CategoryServicePage = ({ params }: IDProps) => {
               label: "Services",
               link: "/services",
             },
+            {
+              label: "Category",
+              link: `/services/category/${id}`,
+            },
           ]}
         />
       </div>
