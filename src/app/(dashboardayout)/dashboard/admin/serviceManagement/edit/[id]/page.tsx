@@ -3,6 +3,7 @@
 import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
 import FormSelectField from "@/components/Forms/FormSelectField";
+import PPCategoryFields from "@/components/Forms/PPCategoryFields";
 import ActionBar from "@/components/ui/ActionBar";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import {
@@ -12,6 +13,7 @@ import {
 
 import { Button, Col, Row, message } from "antd";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 type IDProps = {
   params: any;
@@ -23,9 +25,11 @@ const EditServicePage = ({ params }: IDProps) => {
   const { data, isLoading } = useSingleServiceQuery(id);
   const [updateService] = useUpdateServiceMutation();
 
+  const [ppCategoryId, setPpCategoryId] = useState<string>();
   const onSubmit = async (values: any) => {
     values.price = Number(values.price);
     values.availability = values.availability === "true" ? true : false;
+    values.category_id = ppCategoryId;
     try {
       const data = { id: id, data: values };
       const response = await updateService(data).unwrap();
@@ -45,6 +49,7 @@ const EditServicePage = ({ params }: IDProps) => {
     price: data?.price || "",
     description: data?.description || "",
     availability: String(data?.availability) || "",
+    // category_id: data?.category_id || "",
   };
 
   const availabilityStatus = [
@@ -90,12 +95,19 @@ const EditServicePage = ({ params }: IDProps) => {
             }}
           >
             <Row gutter={[16, 16]}>
-              <Col xs={24} sm={12} md={24} lg={24} style={{ margin: "10px 0" }}>
+              <Col xs={24} sm={12} md={12} lg={12} style={{ margin: "10px 0" }}>
                 <FormInput
                   name="name"
                   type="text"
                   size="large"
                   label="Service Name"
+                />
+              </Col>
+              <Col xs={24} sm={12} md={12} lg={12} style={{ margin: "10px 0" }}>
+                <PPCategoryFields
+                  name="category_id"
+                  label="Category"
+                  onChange={(e) => setPpCategoryId(e)}
                 />
               </Col>
               <Col xs={24} sm={12} md={12} lg={12} style={{ margin: "10px 0" }}>
