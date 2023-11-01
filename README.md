@@ -18,10 +18,6 @@
 <a href="https://redux.js.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/redux-original.svg" alt="Redux" height="40" /></a>  
 </div>
 
-## Links
-
-- [Live URL](https://prime-palette.vercel.app/)
-
 ## Features
 
 - User friendly and secure registration process
@@ -62,3 +58,5 @@ Super Admin credentials
   superadmin@gmail.com
   password: 123456
 ```
+
+Live Website: [URL](https://prime-palette.vercel.app/)
