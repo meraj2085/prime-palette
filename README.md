@@ -59,6 +59,7 @@ Super Admin credentials
   password: 123456
 ```
 
+<span style="margin: 10 0;">&nbsp;</span>
 <p align="center">
   <a href="https://prime-palette.vercel.app/" target="_blank">Live Website</a>
 </p>
