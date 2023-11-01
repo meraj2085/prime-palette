@@ -11,7 +11,7 @@ const FAQPage = () => {
       <div className="container flex flex-col justify-center px-6 py-10 mx-auto">
         <div className="text-center">
           <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-4xl lg:font-bold ">
-            FA<span className="text-teal-600">Q</span>
+            FA<span className="text-[#8484BD]">Q</span>
           </h1>
           <p className="max-w-lg mx-auto mt-4 text-gray-500">
             Frequently Asked Questions

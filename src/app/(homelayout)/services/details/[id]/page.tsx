@@ -168,7 +168,7 @@ const ServiceDetailsPage = ({ params }: IDProps) => {
                 <div className="flex justify-center mt-6">
                   <button
                     type="submit"
-                    className="group relative inline-block text-sm font-medium text-teal-600 focus:outline-none active:text-teal-600"
+                    className="group relative inline-block text-sm font-medium text-[#8484BD] focus:outline-none active:text-[#8484BD]"
                   >
                     <span className="absolute inset-0 border border-current rounded-md"></span>
                     <span className="block border border-current bg-white px-8 md:px-12 py-3 rounded-md transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1">

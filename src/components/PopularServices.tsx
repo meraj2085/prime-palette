@@ -25,7 +25,7 @@ const PopularServices = () => {
       <div className="px-6 py-10">
         <div className="text-center">
           <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-4xl lg:font-bold ">
-            Popular <span className="text-teal-600">Services</span>
+            Popular <span className="text-[#8484BD]">Services</span>
           </h1>
 
           <p className="max-w-lg mx-auto mt-4 text-gray-500">

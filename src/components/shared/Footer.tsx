@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-100">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="flex justify-center text-teal-600">
+        <div className="flex justify-center text-[#8484BD]">
           <Image
             src="https://res.cloudinary.com/dn163fium/image/upload/v1697588920/psog4rriy6tlbcs1edhh.png"
             height={49}
@@ -18,7 +18,7 @@ const Footer = () => {
             Your Trusted Partner in Painting Excellence. Transforming Spaces
             with Precision and Passion.
           </p>
-          <small>&copy; 2023 Your Prime Palette. All rights reserved.</small>
+          <small>&copy; 2023 Prime Palette | All rights reserved.</small>
         </div>
 
         <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
