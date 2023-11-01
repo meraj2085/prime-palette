@@ -20,21 +20,31 @@
 
 ## Features
 
-- User friendly and secure registration process
-- Intuitive interface for users to browse and search for services.
+### User
+
+- User can login, signup and log out.
+- User can manage and update their profile.
 - Users can add services to their booking.
-- Users can select service booking dates and times.
-- Users can manage personal information and preferences.
-- Users can view and edit their profiles.
 - Users can leave reviews and ratings for services.
-- User dashboard to view booking history and check booking statuses.
+- User can view booking history, check booking statuses.
 - Feedback forms for users to submit comments and suggestions.
-- Central dashboard for administrators to monitor and manage website activities.
-- User management system for administrators to add, edit, and manage user.
-- Interface for adding, editing, and removing service listings.
-- Booking management system for administrators to view and manage bookings.
-- Content management system for administrators to control website content.
-- Light/dark mode toggle
+
+### Admin
+
+- Admin can log in and log out.
+- Admin can manage and update their profile.
+- Admins can access centralized dashboard to monitor and manage website activities.
+- Admins can add, edit, and manage user accounts.
+- Admins can add, edit, and remove service listings.
+- Admins can view and manage booking requests.
+- Admins can accept, reject, or adjust schedules as needed.
+- Admin can control website content, including blog posts and FAQs.
+
+### Super Admin
+
+- Super Admin can log in and log out.
+- Super Admin can manage and update their profile.
+- Super Admin can add new admin users to the system.
 
 ## Credentials
 
@@ -60,6 +70,7 @@ Super Admin credentials
 ```
 
 <span style="margin: 10 0;">&nbsp;</span>
+
 <p align="center">
   <a href="https://prime-palette.vercel.app/" target="_blank">Live Website</a>
 </p>
