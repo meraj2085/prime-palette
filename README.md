@@ -1,6 +1,22 @@
-# Prime Palette
+<p align="center">
+  <img src="https://res.cloudinary.com/dn163fium/image/upload/v1697588920/psog4rriy6tlbcs1edhh.png" alt="Logo" width="50" style="max-width: 200px;">
+</p>
 
-A painting service providing web application.
+#
+
+**Prime Palette** is a painting service website that offers distinct dashboards for administrators, regular users, and super administrators. Users have the flexibility to select services from various categories and schedule appointments. Administrators are empowered to either approve or reschedule appointments and maintain control over website activities through a secure dashboard. Super administrators are responsible for managing the administrators.
+
+## Tech Stack
+
+<div align="left">  
+<a href="https://www.typescriptlang.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/typescript-original.svg" alt="TypeScript" height="40" /></a>  
+<span style="margin: 0 10px;">&nbsp;</span>
+<a href="https://www.mongodb.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/mongodb-original-wordmark.svg" alt="MongoDB" height="40" /></a>  
+<span style="margin: 0 10px;">&nbsp;</span>
+<a href="https://nodejs.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/nodejs-original-wordmark.svg" alt="Node.js" height="65" /></a>  
+<span style="margin: 0 10px;">&nbsp;</span>
+<a href="https://expressjs.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/express-original-wordmark.svg" alt="Express.js" height="60" /></a>  
+</div>
 
 ## Links
 
@@ -9,8 +25,6 @@ A painting service providing web application.
 ## Tech Stack
 
 **Client:** NextJs, Redux, Typescript, TailwindCSS, Ant Design
-
-**Server:** Node, Express, Typescript
 
 ## Features
 
