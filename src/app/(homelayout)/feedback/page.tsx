@@ -67,12 +67,14 @@ const FeedbackPage = () => {
                   type="text"
                   size="large"
                   label="Full Name"
+                  disabled
                 />
                 <FormInput
                   name="email"
                   type="email"
                   size="large"
                   label="Email"
+                  disabled
                 />
               </div>
               <div className="mt-5">

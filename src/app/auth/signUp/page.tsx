@@ -9,12 +9,15 @@ import { useUserSignUpMutation } from "@/redux/api/authApi";
 import { storeUserInfo } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { signUpSchema } from "@/schema/signUp";
 
 type FormValues = {
   name: {
     firstName: string;
     lastName: string;
   };
+  mobileNumber: string;
   email: string;
   password: string;
 };
@@ -53,7 +56,7 @@ const SignUpPage = () => {
       <Col className="mx-10 md:mx-0" sm={12} md={8} lg={8}>
         <h1 className="my-4 text-center text-xl">Register new account</h1>
         <div>
-          <Form submitHandler={onSubmit}>
+          <Form submitHandler={onSubmit} resolver={yupResolver(signUpSchema)}>
             <div className="flex gap-4">
               <div>
                 <FormInput

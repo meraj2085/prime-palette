@@ -1,3 +1,4 @@
+import { getErrorMessageByPropertyName } from "@/utils/schemaValidator";
 import { Input } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
 
@@ -16,23 +17,31 @@ const FormTextArea = ({
   value,
   placeholder,
 }: TextAreaProps) => {
-  const { control } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
+  const errorMessage = getErrorMessageByPropertyName(errors, name);
   return (
-    <div className={`flex flex-col  w-full`}>
-      {label ? label : null}
-      <Controller
-        name={name}
-        control={control}
-        render={({ field }) => (
-          <Input.TextArea
-            rows={rows}
-            placeholder={placeholder}
-            {...field}
-            defaultValue={value}
-          />
-        )}
-      />
-    </div>
+    <>
+      <div className={`flex flex-col  w-full`}>
+        {label ? label : null}
+        <Controller
+          name={name}
+          control={control}
+          render={({ field }) => (
+            <Input.TextArea
+              style={{ height: 120 }}
+              rows={rows}
+              placeholder={placeholder}
+              {...field}
+              defaultValue={value}
+            />
+          )}
+        />
+      </div>
+      <small style={{ color: "red" }}>{errorMessage}</small>
+    </>
   );
 };
 
