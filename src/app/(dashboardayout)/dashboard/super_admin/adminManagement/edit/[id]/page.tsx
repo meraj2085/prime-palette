@@ -10,6 +10,8 @@ import {
   useGetSingleUserQuery,
   useUpdateUserAdminMutation,
 } from "@/redux/api/userApi";
+import { userSchema } from "@/schema/user";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Button, Col, Row, message } from "antd";
 import { useRouter } from "next/navigation";
@@ -82,7 +84,11 @@ const EditAdminPage = ({ params }: IDProps) => {
 
       <ActionBar title="Update Admin" />
       <div className="flex justify-center">
-        <Form submitHandler={onSubmit} defaultValues={defaultValues}>
+        <Form
+          submitHandler={onSubmit}
+          defaultValues={defaultValues}
+          resolver={yupResolver(userSchema)}
+        >
           <div
             className="md:mx-0 max-w-[500px] mx-auto mt-10"
             style={{

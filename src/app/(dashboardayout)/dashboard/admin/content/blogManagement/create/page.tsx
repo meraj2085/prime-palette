@@ -8,12 +8,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { Button, Col, Row, message } from "antd";
 import { useAddBlogMutation } from "@/redux/api/blogApi";
+import { blogSchema } from "@/schema/blog";
 
 const CreateBlogPage = () => {
   const [addBlog] = useAddBlogMutation();
   const router = useRouter();
 
   const onSubmit = async (values: any) => {
+    values.views = JSON.stringify(values.views);
     values.image_url = "https://example.com/painting-blog10.jpg";
     try {
       const response = await addBlog(values).unwrap();
@@ -55,7 +57,7 @@ const CreateBlogPage = () => {
       </div>
 
       <div className="mt-10">
-        <Form submitHandler={onSubmit}>
+        <Form submitHandler={onSubmit} resolver={yupResolver(blogSchema)}>
           <div
             style={{
               border: "1px solid #d9d9d9",

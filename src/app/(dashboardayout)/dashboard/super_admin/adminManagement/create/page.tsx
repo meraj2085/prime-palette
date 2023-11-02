@@ -12,6 +12,7 @@ import { IUser } from "@/types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { Button, Col, Row, message } from "antd";
+import { signUpSchema } from "@/schema/signUp";
 
 const CreateUserPage = () => {
   const [userSignUp] = useUserSignUpMutation();
@@ -59,7 +60,7 @@ const CreateUserPage = () => {
       </div>
 
       <div className="mt-10">
-        <Form submitHandler={onSubmit}>
+        <Form submitHandler={onSubmit} resolver={yupResolver(signUpSchema)}>
           <div
             style={{
               border: "1px solid #d9d9d9",

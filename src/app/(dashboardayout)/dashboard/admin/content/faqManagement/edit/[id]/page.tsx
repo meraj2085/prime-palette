@@ -3,9 +3,13 @@
 import Loading from "@/app/loading";
 import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
+import FormTextArea from "@/components/Forms/FormTextArea";
 import ActionBar from "@/components/ui/ActionBar";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import { useGetSingleFaqQuery, useUpdateFaqMutation } from "@/redux/api/faqApi";
+import { blogSchema } from "@/schema/blog";
+import { faqSchema } from "@/schema/faq";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Col, Row, message } from "antd";
 import { useRouter } from "next/navigation";
 
@@ -62,7 +66,11 @@ const EditFAQPage = ({ params }: IDProps) => {
 
       <ActionBar title="Update FAQ" />
       <div className="flex justify-center">
-        <Form submitHandler={onSubmit} defaultValues={defaultValues}>
+        <Form
+          submitHandler={onSubmit}
+          defaultValues={defaultValues}
+          resolver={yupResolver(faqSchema)}
+        >
           <div
             className="md:mx-0 max-w-[500px] mx-auto mt-10"
             style={{
@@ -82,12 +90,7 @@ const EditFAQPage = ({ params }: IDProps) => {
                 />
               </Col>
               <Col xs={24} sm={12} md={24} lg={24} style={{ margin: "10px 0" }}>
-                <FormInput
-                  name="answer"
-                  type="text"
-                  size="large"
-                  label="Answer"
-                />
+                <FormTextArea name="answer" label="Answer" />
               </Col>
             </Row>
             <div className="flex md:justify-end justify-center mt-5">

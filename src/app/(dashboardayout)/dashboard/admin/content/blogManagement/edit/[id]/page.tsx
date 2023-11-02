@@ -9,6 +9,8 @@ import {
   useGetSingleBlogQuery,
   useUpdateBlogMutation,
 } from "@/redux/api/blogApi";
+import { blogSchema } from "@/schema/blog";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Col, Row, message } from "antd";
 import { useRouter } from "next/navigation";
 
@@ -24,6 +26,7 @@ const EditBlogPage = ({ params }: IDProps) => {
 
   const onSubmit = async (values: any) => {
     try {
+      values.views = JSON.stringify(values.views);
       const data = { id: id, data: values };
       const response = await updateBlog(data).unwrap();
       if (response?._id) {
@@ -66,7 +69,11 @@ const EditBlogPage = ({ params }: IDProps) => {
 
       <ActionBar title="Update Blog" />
       <div className="flex justify-center">
-        <Form submitHandler={onSubmit} defaultValues={defaultValues}>
+        <Form
+          submitHandler={onSubmit}
+          defaultValues={defaultValues}
+          resolver={yupResolver(blogSchema)}
+        >
           <div
             className="md:mx-0 max-w-[500px] mx-auto mt-10"
             style={{
