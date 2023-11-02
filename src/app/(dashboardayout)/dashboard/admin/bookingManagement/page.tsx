@@ -109,12 +109,6 @@ const BookingManagementPage = () => {
     setSortOrder(order === "ascend" ? "asc" : "desc");
   };
 
-  const resetFilters = () => {
-    setSortBy("");
-    setSortOrder("");
-    setSearchTerm("");
-  };
-
   return (
     <div>
       <UMBreadCrumb
@@ -138,13 +132,6 @@ const BookingManagementPage = () => {
             width: "20%",
           }}
         />
-        <div>
-          {(!!sortBy || !!sortOrder || !!searchTerm) && (
-            <Button style={{ margin: "0px 5px" }} onClick={resetFilters}>
-              <ReloadOutlined />
-            </Button>
-          )}
-        </div>
       </ActionBar>
 
       <UMTable

@@ -4,7 +4,7 @@ const Overview = () => {
       <div className="px-6 py-10 space-y-8 max-w-[1200px] mx-auto">
         <div className="text-center">
           <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-4xl lg:font-bold ">
-            Company <span className="text-teal-600">Overview</span>
+            Company <span className="text-[#8484BD]">Overview</span>
           </h1>
           <p className="max-w-lg mx-auto mt-4 text-gray-500">
             Know about our statistics

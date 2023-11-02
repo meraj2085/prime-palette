@@ -2,10 +2,10 @@ import React from "react";
 
 const Gallery = () => {
   return (
-    <section className="py-6 mb-16">
+    <section className="py-6 mb-16 max-w-[1200px] mx-auto">
       <div className="text-center mb-16">
         <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-4xl lg:font-bold ">
-          Work <span className="text-teal-600">Gallery</span>
+          Work <span className="text-[#8484BD]">Gallery</span>
         </h1>
 
         <p className="max-w-lg mx-auto mt-4 text-gray-500">

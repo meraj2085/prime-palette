@@ -40,7 +40,7 @@ const NavBar = () => {
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
-            <Link className="block text-teal-600" href="/">
+            <Link className="block text-[#8484BD]" href="/">
               <span className="sr-only">Home</span>
               <Image
                 src="https://res.cloudinary.com/dn163fium/image/upload/v1697588920/psog4rriy6tlbcs1edhh.png"
@@ -122,14 +122,14 @@ const NavBar = () => {
                 <div className="sm:flex sm:gap-4">
                   <>
                     <Link
-                      className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                      className="rounded-md bg-[#8484BD] px-5 py-2.5 text-sm font-medium text-white shadow"
                       href="/auth/login"
                     >
                       Login
                     </Link>
                     <div className="hidden sm:flex">
                       <Link
-                        className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+                        className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-[#8484BD]"
                         href="/auth/signUp"
                       >
                         Register

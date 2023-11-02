@@ -28,7 +28,7 @@ export default function Home() {
               <h1 className="mb-3 text-4xl font-bold text-white md:text-gray-900 md:text-5xl md:leading-tight md:font-extrabold">
                 Quality Wallpapers
               </h1>
-              <h1 className="hidden md:flex md:text-gray-900 text-2xl md:ms-7">
+              <h1 className="hidden md:flex md:text-gray-900 text-3xl font-semibold md:ms-7">
                 Paintings For Home
               </h1>
             </div>
@@ -37,7 +37,7 @@ export default function Home() {
                 <svg
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="w-4 h-4 mr-1 text-green-600"
+                  className="w-4 h-4 mr-1 text-[#8484BD]"
                 >
                   <path
                     fillRule="evenodd"
@@ -51,7 +51,7 @@ export default function Home() {
                 <svg
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="w-4 h-4 mr-1 text-green-600"
+                  className="w-4 h-4 mr-1 text-[#8484BD]"
                 >
                   <path
                     fillRule="evenodd"
@@ -65,7 +65,7 @@ export default function Home() {
                 <svg
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="w-4 h-4 mr-1 text-green-600"
+                  className="w-4 h-4 mr-1 text-[#8484BD]"
                 >
                   <path
                     fillRule="evenodd"

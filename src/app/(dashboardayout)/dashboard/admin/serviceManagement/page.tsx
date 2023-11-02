@@ -17,10 +17,12 @@ import {
   useDeleteServiceMutation,
   useServicesQuery,
 } from "@/redux/api/serviceApi";
+import PPModal from "@/components/ui/Modal";
 
 const ServiceManagementPage = () => {
   const query: Record<string, any> = {};
-
+  const [deleteId, setDeleteId] = useState<string>("");
+  const [open, setOpen] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
   const [size, setSize] = useState<number>(10);
   const [sortBy, setSortBy] = useState<string>("");
@@ -47,6 +49,8 @@ const ServiceManagementPage = () => {
   const deleteHandler = async (id: string) => {
     try {
       const response = await deleteService(id).unwrap();
+      setOpen(false);
+      setDeleteId("");
       if (response?.id) {
         message.success("Service deleted successfully");
       } else {
@@ -109,7 +113,10 @@ const ServiceManagementPage = () => {
               </Button>
             </Link>
             <Button
-              onClick={() => deleteHandler(data)}
+              onClick={() => {
+                setDeleteId(data);
+                setOpen(true);
+              }}
               type="primary"
               danger
             >
@@ -130,59 +137,62 @@ const ServiceManagementPage = () => {
     setSortOrder(order === "ascend" ? "asc" : "desc");
   };
 
-  const resetFilters = () => {
-    setSortBy("");
-    setSortOrder("");
-    setSearchTerm("");
-  };
-
   return (
-    <div>
-      <UMBreadCrumb
-        items={[
-          {
-            label: "Admin",
-            link: "/dashboard/admin",
-          },
-          {
-            label: "Services",
-            link: "/dashboard/admin/serviceManagement",
-          },
-        ]}
-      />
-      <ActionBar title="Service List">
-        <Input
-          size="large"
-          placeholder="Search"
-          onChange={(e) => setSearchTerm(e.target.value)}
-          style={{
-            width: "20%",
-          }}
+    <>
+      <div>
+        <UMBreadCrumb
+          items={[
+            {
+              label: "Admin",
+              link: "/dashboard/admin",
+            },
+            {
+              label: "Services",
+              link: "/dashboard/admin/serviceManagement",
+            },
+          ]}
         />
-        <div>
-          <Link href="/dashboard/admin/serviceManagement/create">
-            <Button>Add Service</Button>
-          </Link>
-          {(!!sortBy || !!sortOrder || !!searchTerm) && (
-            <Button style={{ margin: "0px 5px" }} onClick={resetFilters}>
-              <ReloadOutlined />
-            </Button>
-          )}
-        </div>
-      </ActionBar>
+        <ActionBar title="Service List">
+          <Input
+            size="large"
+            placeholder="Search"
+            onChange={(e) => setSearchTerm(e.target.value)}
+            style={{
+              width: "20%",
+            }}
+          />
+          <div>
+            <Link href="/dashboard/admin/serviceManagement/create">
+              <Button>Add Service</Button>
+            </Link>
+          </div>
+        </ActionBar>
 
-      <UMTable
-        loading={isLoading}
-        columns={columns}
-        dataSource={data?.services}
-        pageSize={size}
-        totalPages={meta?.total}
-        showSizeChanger={true}
-        onPaginationChange={onPaginationChange}
-        onTableChange={onTableChange}
-        showPagination={true}
-      />
-    </div>
+        <UMTable
+          loading={isLoading}
+          columns={columns}
+          dataSource={data?.services}
+          pageSize={size}
+          totalPages={meta?.total}
+          showSizeChanger={true}
+          onPaginationChange={onPaginationChange}
+          onTableChange={onTableChange}
+          showPagination={true}
+        />
+      </div>
+      <PPModal
+        title="Delete Service"
+        isOpen={open}
+        closeModal={() => setOpen(false)}
+        handleOk={() => {
+          deleteHandler(deleteId);
+        }}
+      >
+        <>
+          <p className="mt-5">Are you sure you want to delete this service?</p>
+        </>
+      </PPModal>
+    </>
   );
 };
 

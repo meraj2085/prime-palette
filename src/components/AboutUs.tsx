@@ -4,7 +4,7 @@ const AboutUs = () => {
       <div className="px-6 py-10 max-w-[1200px] mx-auto">
         <div className="text-center">
           <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-4xl lg:font-bold ">
-            About <span className="text-teal-600">Us</span>
+            About <span className="text-[#8484BD]">Us</span>
           </h1>
 
           <p className="max-w-lg mx-auto mt-4 text-gray-500">
@@ -12,7 +12,7 @@ const AboutUs = () => {
           </p>
         </div>
 
-        <div className="mt-8 md:mt-10">
+        <div className="mt-8 md:mt-16">
           <h1>
             Welcome to our premier painting services platform, where artistry
             meets excellence. At Prime Palette, we redefine aesthetics

@@ -14,7 +14,7 @@ const BlogPage = () => {
       <div className="container px-6 py-10 mx-auto space-y-8">
         <div className="text-center">
           <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-4xl lg:font-bold ">
-            Blo<span className="text-teal-600">g</span>
+            Blo<span className="text-[#8484BD]">g</span>
           </h1>
 
           <p className="max-w-lg mx-auto mt-4 text-gray-500">

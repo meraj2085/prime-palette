@@ -11,9 +11,9 @@ const News = () => {
   return (
     <section className="max-w-[1200px] mx-auto">
       <div className="container px-6 py-10 mx-auto space-y-8">
-        <div className="text-center">
+        <div className="text-center mb-20">
           <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-4xl lg:font-bold ">
-            Latest <span className="text-teal-600">News</span>
+            Latest <span className="text-[#8484BD]">News</span>
           </h1>
           <p className="max-w-lg mx-auto mt-4 text-gray-500">
             Know whats happening in the world of paint
