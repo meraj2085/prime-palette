@@ -1,7 +1,11 @@
+import { getFromLocalStorage } from "@/utils/localStorage";
 import { createSlice } from "@reduxjs/toolkit";
 
+const localStorageTheme = getFromLocalStorage("theme");
+const theme = localStorageTheme ? JSON.parse(localStorageTheme) : null;
+
 const initialState = {
-  theme: "dark",
+  theme: theme?.theme ? theme?.theme : "dark",
 };
 
 const configSlice = createSlice({
