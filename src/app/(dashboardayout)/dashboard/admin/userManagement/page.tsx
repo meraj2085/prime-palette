@@ -1,6 +1,6 @@
 "use client";
 import ActionBar from "@/components/ui/ActionBar";
-import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import { Button, Input } from "antd";
 import Link from "next/link";
 import {
@@ -10,7 +10,7 @@ import {
 } from "@ant-design/icons";
 import { useState } from "react";
 import { useDebounced } from "@/redux/hooks";
-import UMTable from "@/components/ui/UMTable";
+import PPTable from "@/components/ui/PPTable";
 import { IUser } from "@/types";
 import dayjs from "dayjs";
 import { useGetAllUsersQuery } from "@/redux/api/userApi";
@@ -97,7 +97,7 @@ const UserManagementPage = () => {
 
   return (
     <div>
-      <UMBreadCrumb
+      <BreadCrumb
         items={[
           {
             label: "Admin",
@@ -125,7 +125,7 @@ const UserManagementPage = () => {
         </div>
       </ActionBar>
 
-      <UMTable
+      <PPTable
         loading={isLoading}
         columns={columns}
         dataSource={data?.users}

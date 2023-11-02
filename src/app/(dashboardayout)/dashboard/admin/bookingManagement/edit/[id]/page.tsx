@@ -4,7 +4,7 @@ import Form from "@/components/Forms/Form";
 import FormDatePicker from "@/components/Forms/FormDatePicker";
 import FormSelectField from "@/components/Forms/FormSelectField";
 import ActionBar from "@/components/ui/ActionBar";
-import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import {
   useSingleAppointmentQuery,
   useUpdateScheduleAndStatusMutation,
@@ -64,7 +64,7 @@ const EditBookingPage = ({ params }: IDProps) => {
 
   return (
     <div>
-      <UMBreadCrumb
+      <BreadCrumb
         items={[
           {
             label: "Admin",

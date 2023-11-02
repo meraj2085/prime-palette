@@ -1,7 +1,7 @@
 "use client";
 
 import Loading from "@/app/loading";
-import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import { useGetSingleBlogQuery } from "@/redux/api/blogApi";
 import dayjs from "dayjs";
 import Image from "next/image";
@@ -16,7 +16,7 @@ const BlogDetailsPage = ({ params }: IDProps) => {
   return (
     <section className="max-w-[1200px] mx-auto">
       <div className="mt-6 mx-5">
-        <UMBreadCrumb
+        <BreadCrumb
           items={[
             {
               label: "Home",

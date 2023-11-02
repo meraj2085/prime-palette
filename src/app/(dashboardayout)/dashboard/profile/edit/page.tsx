@@ -5,7 +5,7 @@ import { Button, Col, Row, Tooltip, message } from "antd";
 import { useAppSelector } from "@/redux/hooks";
 import FormInput from "@/components/Forms/FormInput";
 import Form from "@/components/Forms/Form";
-import BreadCrumb from "@/components/ui/BreadCumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import { IUser } from "@/types";
 import {
   useGetProfileQuery,

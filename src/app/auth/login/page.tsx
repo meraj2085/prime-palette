@@ -8,7 +8,9 @@ import { SubmitHandler } from "react-hook-form";
 import { useUserLoginMutation } from "@/redux/api/authApi";
 import { storeUserInfo } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
+import { loginSchema } from "@/schema/login";
 import Link from "next/link";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 type FormValues = {
   email: string;
@@ -48,7 +50,7 @@ const LoginPage = () => {
       <Col className="mx-10 md:mx-0" sm={12} md={8} lg={8}>
         <h1 className="my-4 text-center text-xl">Login your account</h1>
         <div>
-          <Form submitHandler={onSubmit}>
+          <Form submitHandler={onSubmit} resolver={yupResolver(loginSchema)}>
             <div>
               <FormInput name="email" type="email" size="large" label="Email" />
             </div>

@@ -2,12 +2,13 @@
 
 import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
-import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import { IUser } from "@/types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { Button, Col, Row, message } from "antd";
 import { useAddFaqMutation } from "@/redux/api/faqApi";
+import { faqSchema } from "@/schema/faq";
 
 const CreateFaqPage = () => {
   const [addFaq] = useAddFaqMutation();
@@ -29,7 +30,7 @@ const CreateFaqPage = () => {
 
   return (
     <div>
-      <UMBreadCrumb
+      <BreadCrumb
         items={[
           {
             label: "Admin",
@@ -54,7 +55,7 @@ const CreateFaqPage = () => {
       </div>
 
       <div className="mt-10">
-        <Form submitHandler={onSubmit}>
+        <Form submitHandler={onSubmit} resolver={yupResolver(faqSchema)}>
           <div
             style={{
               border: "1px solid #d9d9d9",

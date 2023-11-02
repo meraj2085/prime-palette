@@ -1,7 +1,7 @@
 "use client";
 
 import Loading from "@/app/loading";
-import BreadCrumb from "@/components/ui/BreadCumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import {
   useAddReviewMutation,
   useGetReviewsQuery,

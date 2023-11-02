@@ -5,7 +5,7 @@ import { Pagination, PaginationProps, Select } from "antd";
 import { useServicesQuery } from "@/redux/api/serviceApi";
 import ServiceCard from "@/components/shared/ServiceCard";
 import SkeletonCard from "@/components/shared/SkeletonCard";
-import BreadCrumb from "@/components/ui/BreadCumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import { useDebounced } from "@/redux/hooks";
 
 const ServicesPage = () => {

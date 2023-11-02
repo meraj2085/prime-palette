@@ -1,5 +1,6 @@
 "use client";
 
+import { getErrorMessageByPropertyName } from "@/utils/schemaValidator";
 import { Select } from "antd";
 import { useFormContext, Controller } from "react-hook-form";
 
@@ -27,7 +28,12 @@ const FormMultiSelectField = ({
   label,
   defaultValue,
 }: SelectFieldProps) => {
-  const { control } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
+
+  const errorMessage = getErrorMessageByPropertyName(errors, name);
 
   return (
     <>
@@ -48,6 +54,7 @@ const FormMultiSelectField = ({
           />
         )}
       />
+      <small style={{ color: "red" }}>{errorMessage}</small>
     </>
   );
 };

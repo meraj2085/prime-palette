@@ -5,11 +5,13 @@ import FormInput from "@/components/Forms/FormInput";
 import FormSelectField from "@/components/Forms/FormSelectField";
 import PPCategoryFields from "@/components/Forms/PPCategoryFields";
 import ActionBar from "@/components/ui/ActionBar";
-import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import {
   useSingleServiceQuery,
   useUpdateServiceMutation,
 } from "@/redux/api/serviceApi";
+import { serviceSchema } from "@/schema/service";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Button, Col, Row, message } from "antd";
 import { useRouter } from "next/navigation";
@@ -65,7 +67,7 @@ const EditServicePage = ({ params }: IDProps) => {
 
   return (
     <div>
-      <UMBreadCrumb
+      <BreadCrumb
         items={[
           {
             label: "Admin",
@@ -84,7 +86,11 @@ const EditServicePage = ({ params }: IDProps) => {
 
       <ActionBar title="Update Service" />
       <div className="flex justify-center">
-        <Form submitHandler={onSubmit} defaultValues={defaultValues}>
+        <Form
+          submitHandler={onSubmit}
+          defaultValues={defaultValues}
+          resolver={yupResolver(serviceSchema)}
+        >
           <div
             className="md:mx-0 max-w-[500px] mx-auto mt-10"
             style={{

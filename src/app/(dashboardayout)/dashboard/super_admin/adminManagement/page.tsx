@@ -1,12 +1,12 @@
 "use client";
 import ActionBar from "@/components/ui/ActionBar";
-import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import { Button, Input } from "antd";
 import Link from "next/link";
 import { EditOutlined, ReloadOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { useDebounced } from "@/redux/hooks";
-import UMTable from "@/components/ui/UMTable";
+import PPTable from "@/components/ui/PPTable";
 import { IUser } from "@/types";
 import dayjs from "dayjs";
 import { useGetAdminsQuery } from "@/redux/api/userApi";
@@ -92,7 +92,7 @@ const AdminManagementPage = () => {
 
   return (
     <div>
-      <UMBreadCrumb
+      <BreadCrumb
         items={[
           {
             label: "Super Admin",
@@ -120,7 +120,7 @@ const AdminManagementPage = () => {
         </div>
       </ActionBar>
 
-      <UMTable
+      <PPTable
         loading={isLoading}
         columns={columns}
         dataSource={data?.admins}

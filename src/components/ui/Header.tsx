@@ -1,30 +1,23 @@
-import {
-  Avatar,
-  Button,
-  Dropdown,
-  Layout,
-  MenuProps,
-  Row,
-  Space,
-  Switch,
-} from "antd";
+import { Avatar, Dropdown, Layout, MenuProps, Row, Space } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { getUserInfo, removeUserInfo } from "@/services/auth.service";
 import { authKey } from "@/constants/storageKey";
 import { useRouter } from "next/navigation";
-import { FireOutlined, BugOutlined } from "@ant-design/icons";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
 import { getFromLocalStorage, setToLocalStorage } from "@/utils/localStorage";
 import Link from "next/link";
 const { Header: AntHeader } = Layout;
+import sun from "../../../public/assets/sun.png";
+import moon from "../../../public/assets/moon.png";
+import Image from "next/image";
+import { useState } from "react";
 
 const Header = () => {
-  // const theme = useAppSelector((state) => state.config.theme);
   const localStorageTheme = getFromLocalStorage("theme");
   const theme = localStorageTheme ? JSON.parse(localStorageTheme) : null;
+  const [localTheme, setLocalTheme] = useState(theme?.theme);
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const { role } = getUserInfo() as any;
 
   const logOut = () => {
     removeUserInfo(authKey);
@@ -60,7 +53,6 @@ const Header = () => {
       style={{
         height: "65.5px",
         background: "#FFFFFF",
-        // marginLeft: "1px",
       }}
     >
       <Row
@@ -70,27 +62,37 @@ const Header = () => {
           height: "100%",
         }}
       >
-        <p
-          style={{
-            margin: "0px 10px",
-            color: "black",
-          }}
-        >
-          <Switch
-            onChange={(checked) => {
-              if (checked) {
-                setToLocalStorage("theme", JSON.stringify({ theme: "dark" }));
-                dispatch({ type: "config/setTheme", payload: "dark" });
-              } else {
+        <div className="mr-10">
+          {theme?.theme === "dark" ||
+          localTheme === "dark" ||
+          theme?.theme === undefined ? (
+            <Image
+              height={25}
+              width={25}
+              src={sun}
+              alt="Sun Logo"
+              className="block object-contain h-16"
+              onClick={() => {
+                setLocalTheme("light");
                 setToLocalStorage("theme", JSON.stringify({ theme: "light" }));
                 dispatch({ type: "config/setTheme", payload: "light" });
-              }
-            }}
-            checkedChildren={<BugOutlined />}
-            unCheckedChildren={<FireOutlined />}
-            defaultChecked={theme?.theme === "dark" ? true : false}
-          />
-        </p>
+              }}
+            />
+          ) : (
+            <Image
+              height={25}
+              width={25}
+              src={moon}
+              alt="Moon Logo"
+              className="block object-contain h-16"
+              onClick={() => {
+                setLocalTheme("dark");
+                setToLocalStorage("theme", JSON.stringify({ theme: "dark" }));
+                dispatch({ type: "config/setTheme", payload: "dark" });
+              }}
+            />
+          )}
+        </div>
         <Dropdown menu={{ items }}>
           <a>
             <Space wrap size={16}>
