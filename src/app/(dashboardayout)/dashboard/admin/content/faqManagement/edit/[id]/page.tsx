@@ -5,7 +5,7 @@ import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
 import FormTextArea from "@/components/Forms/FormTextArea";
 import ActionBar from "@/components/ui/ActionBar";
-import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import { useGetSingleFaqQuery, useUpdateFaqMutation } from "@/redux/api/faqApi";
 import { blogSchema } from "@/schema/blog";
 import { faqSchema } from "@/schema/faq";
@@ -47,7 +47,7 @@ const EditFAQPage = ({ params }: IDProps) => {
 
   return (
     <div>
-      <UMBreadCrumb
+      <BreadCrumb
         items={[
           {
             label: "Admin",

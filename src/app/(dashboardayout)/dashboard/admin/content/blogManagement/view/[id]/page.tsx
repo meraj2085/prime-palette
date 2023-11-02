@@ -1,6 +1,6 @@
 "use client";
 
-import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import Image from "next/image";
 import { useGetSingleBlogQuery } from "@/redux/api/blogApi";
 import Loading from "@/app/loading";
@@ -18,7 +18,7 @@ const ViewBlogPage = ({ params }: IDProps) => {
 
   return (
     <div>
-      <UMBreadCrumb
+      <BreadCrumb
         items={[
           {
             label: "Admin",

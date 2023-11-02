@@ -5,7 +5,7 @@ import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
 import FormSelectField from "@/components/Forms/FormSelectField";
 import ActionBar from "@/components/ui/ActionBar";
-import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import {
   useGetSingleUserQuery,
   useUpdateUserAdminMutation,
@@ -65,7 +65,7 @@ const EditAdminPage = ({ params }: IDProps) => {
   if (isLoading) return <Loading />;
   return (
     <div>
-      <UMBreadCrumb
+      <BreadCrumb
         items={[
           {
             label: "Super Admin",

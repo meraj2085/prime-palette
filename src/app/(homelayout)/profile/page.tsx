@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Tooltip } from "antd";
 import { useAppSelector } from "@/redux/hooks";
 import Link from "next/link";
-import BreadCrumb from "@/components/ui/BreadCumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import Loading from "@/app/loading";
 import { useAuth } from "@/utils/checkAuth";
 

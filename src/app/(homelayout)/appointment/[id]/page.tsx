@@ -4,7 +4,7 @@ import Loading from "@/app/loading";
 import Form from "@/components/Forms/Form";
 import FormDatePicker from "@/components/Forms/FormDatePicker";
 import FormInput from "@/components/Forms/FormInput";
-import BreadCrumb from "@/components/ui/BreadCumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import { useAddAppointmentMutation } from "@/redux/api/appointmentApi";
 import { useSingleServiceQuery } from "@/redux/api/serviceApi";
 import { Button, Col, Row, message } from "antd";

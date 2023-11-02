@@ -4,7 +4,7 @@ import Loading from "@/app/loading";
 import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
 import ActionBar from "@/components/ui/ActionBar";
-import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import {
   useGetSingleBlogQuery,
   useUpdateBlogMutation,
@@ -50,7 +50,7 @@ const EditBlogPage = ({ params }: IDProps) => {
 
   return (
     <div>
-      <UMBreadCrumb
+      <BreadCrumb
         items={[
           {
             label: "Admin",

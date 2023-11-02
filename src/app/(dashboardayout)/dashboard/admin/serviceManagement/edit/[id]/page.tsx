@@ -5,7 +5,7 @@ import FormInput from "@/components/Forms/FormInput";
 import FormSelectField from "@/components/Forms/FormSelectField";
 import PPCategoryFields from "@/components/Forms/PPCategoryFields";
 import ActionBar from "@/components/ui/ActionBar";
-import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import {
   useSingleServiceQuery,
   useUpdateServiceMutation,
@@ -67,7 +67,7 @@ const EditServicePage = ({ params }: IDProps) => {
 
   return (
     <div>
-      <UMBreadCrumb
+      <BreadCrumb
         items={[
           {
             label: "Admin",

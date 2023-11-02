@@ -5,7 +5,7 @@ import FormDatePicker from "@/components/Forms/FormDatePicker";
 import FormInput from "@/components/Forms/FormInput";
 import FormSelectField from "@/components/Forms/FormSelectField";
 import FormTextArea from "@/components/Forms/FormTextArea";
-import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
+import BreadCrumb from "@/components/ui/BreadCrumb";
 import UploadImage from "@/components/ui/UploadImage";
 import { useUserSignUpMutation } from "@/redux/api/authApi";
 import { IUser } from "@/types";
@@ -34,7 +34,7 @@ const CreateUserPage = () => {
 
   return (
     <div>
-      <UMBreadCrumb
+      <BreadCrumb
         items={[
           {
             label: "Admin",
