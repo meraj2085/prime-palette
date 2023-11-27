@@ -52,7 +52,7 @@ const ServicesPage = () => {
   };
 
   return (
-    <section className="bg-white my-10 max-w-[1200px] mx-auto">
+    <section className="bg-white mt-[120px] my-10 max-w-[1200px] mx-auto">
       <div className="flex justify-between mb-5">
         <div className="relative">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

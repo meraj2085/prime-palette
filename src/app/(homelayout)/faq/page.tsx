@@ -7,7 +7,7 @@ const FAQPage = () => {
   const { data, isLoading } = useGetAllFaqQuery({});
   if (isLoading) return <Loading />;
   return (
-    <section className=" text-gray-800 min-h-screen">
+    <section className="mt-[70px] text-gray-800 min-h-screen">
       <div className="container flex flex-col justify-center px-6 py-10 mx-auto">
         <div className="text-center">
           <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-4xl lg:font-bold ">
