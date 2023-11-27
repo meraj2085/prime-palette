@@ -44,7 +44,7 @@ const ProfileEditPage = () => {
   if (userAuth) return <Loading />;
 
   return (
-    <section className="bg-white max-w-[1200px] mx-auto">
+    <section className="bg-white mt-[70px] max-w-[1200px] mx-auto">
       <div className="md:mb-2 mb-0 mx-5 md:mx-0 mt-10">
         <BreadCrumb
           items={[

@@ -15,7 +15,7 @@ const ProfilePage = () => {
   const userAuth = useAuth();
   if (userAuth) return <Loading />;
   return (
-    <div className="bg-white max-w-[1200px] mx-auto">
+    <div className="bg-white mt-[70px] max-w-[1200px] mx-auto">
       <div className="md:mb-2 mb-0 mx-5 md:mx-0 mt-10">
         <BreadCrumb
           items={[

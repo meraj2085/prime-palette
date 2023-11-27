@@ -1,43 +1,45 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { getUserInfo, removeUserInfo } from "@/services/auth.service";
-import { useRouter } from "next/navigation";
-import { authKey } from "@/constants/storageKey";
-import { Avatar, Button, Dropdown, MenuProps, Space } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
+
+const DynamicAuthNav = dynamic(
+  () => import("@/components/shared/DynamicAuthNav"),
+  {
+    ssr: false,
+  }
+);
+
+const DynamicRouteNav = dynamic(
+  () => import("@/components/shared/DynamicRouteNav"),
+  {
+    ssr: false,
+  }
+);
 
 const NavBar = () => {
-  const router = useRouter();
-  const { role } = getUserInfo() as any;
-  const logOut = () => {
-    removeUserInfo(authKey);
-    router.push("/auth/login");
-  };
+  const [open, setOpen] = useState(false);
+  const [sticky, setSticky] = useState(false);
 
-  const items: MenuProps["items"] = [
-    {
-      key: "0",
-      label: (
-        <Link href="/profile">
-          <Button type="text">Profile</Button>
-        </Link>
-      ),
-    },
-    {
-      key: "0",
-      label: (
-        <Button onClick={logOut} type="text" danger>
-          Logout
-        </Button>
-      ),
-    },
+  const menuLinks = [
+    { name: "Home", link: "/" },
+    { name: "Services", link: "/services" },
+    { name: "Blog", link: "/blog" },
+    { name: "FAQ", link: "/faq" },
+    { name: "Feedback", link: "/feedback" },
   ];
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.scrollY > 0 ? setSticky(true) : setSticky(false);
+    });
+  });
+
   return (
-    <header className="bg-white">
-      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+    <header
+      className={`${sticky && "bg-white"} fixed top-0 left-0 right-0 z-[1]`}
+    >
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-0">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
             <Link className="block text-[#8484BD]" href="/">
@@ -94,60 +96,12 @@ const NavBar = () => {
                     Feedback
                   </Link>
                 </li>
-                {role && (
-                  <li>
-                    <Link
-                      className="text-gray-500 transition hover:text-gray-500/75"
-                      href="/booking"
-                    >
-                      Booking
-                    </Link>
-                  </li>
-                )}
-                {role && (role === "admin" || role === "super_admin") && (
-                  <li>
-                    <Link
-                      className="text-gray-500 transition hover:text-gray-500/75"
-                      href={`/dashboard/${role}`}
-                    >
-                      Dashboard
-                    </Link>
-                  </li>
-                )}
+                <DynamicRouteNav />
               </ul>
             </nav>
-
             <div className="flex items-center gap-4">
-              {!role ? (
-                <div className="sm:flex sm:gap-4">
-                  <>
-                    <Link
-                      className="rounded-md bg-[#8484BD] px-5 py-2.5 text-sm font-medium text-white shadow"
-                      href="/auth/login"
-                    >
-                      Login
-                    </Link>
-                    <div className="hidden sm:flex">
-                      <Link
-                        className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-[#8484BD]"
-                        href="/auth/signUp"
-                      >
-                        Register
-                      </Link>
-                    </div>
-                  </>
-                </div>
-              ) : (
-                <Dropdown menu={{ items }}>
-                  <a>
-                    <Space wrap size={16}>
-                      <Avatar size="large" icon={<UserOutlined />} />
-                    </Space>
-                  </a>
-                </Dropdown>
-              )}
-
-              <div className="block md:hidden">
+              <DynamicAuthNav />
+              <div className="block md:hidden" onClick={() => setOpen(!open)}>
                 <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -168,6 +122,50 @@ const NavBar = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div
+        className={`md:hidden text-gray-900 absolute w-2/3 h-screen px-7 py-2 font-medium bg-white top-0 right-0 duration-300 ${
+          open ? "right-0" : "right-[-100%]"
+        }`}
+      >
+        <div className="flex justify-end mt-2">
+          <button
+            onClick={() => {
+              setOpen(!setOpen);
+            }}
+            className={`flex justify-end  ${open ? "block" : "hidden"}`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-8 h-8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <ul className="flex flex-col h-full gap-5 pt-4 text-lg">
+          {menuLinks?.map((menu, i) => (
+            <li key={i} className="px-6 hover:text-secondary">
+              <Link
+                onClick={() => {
+                  setOpen(!open);
+                }}
+                href={menu?.link}
+              >
+                {menu?.name}
+              </Link>
+            </li>
+          ))}
+          <DynamicAuthNav />
+        </ul>
       </div>
     </header>
   );

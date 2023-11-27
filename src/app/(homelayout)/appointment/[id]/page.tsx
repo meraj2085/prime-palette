@@ -57,7 +57,7 @@ const AppointmentPage = ({ params }: IDProps) => {
   if (isLoading || userAuth) return <Loading />;
 
   return (
-    <section className="bg-white my-10 max-w-[1200px] mx-auto">
+    <section className="bg-white mt-[120px] my-10 max-w-[1200px] mx-auto">
       <div className="md:mb-2 mb-0 mx-5 md:mx-0">
         <BreadCrumb
           items={[

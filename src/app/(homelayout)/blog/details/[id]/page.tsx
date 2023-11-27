@@ -29,7 +29,7 @@ const BlogDetailsPage = ({ params }: IDProps) => {
           ]}
         />
       </div>
-      <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
+      <div className="container mt-[70px] max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
         <a
           rel="noopener noreferrer"
           href="#"

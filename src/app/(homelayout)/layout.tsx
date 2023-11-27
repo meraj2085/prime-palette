@@ -1,15 +1,16 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import NavBar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import { useGetProfileQuery } from "@/redux/api/userApi";
 import { getUserInfo } from "@/services/auth.service";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { useEffect } from "react";
 
-const Navbar = dynamic(() => import("@/components/shared/Navbar"), {
-  ssr: false,
-});
+// const Navbar = dynamic(() => import("@/components/shared/Navbar"), {
+//   ssr: false,
+// });
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const dispatch = useAppDispatch();
@@ -21,7 +22,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div>
-      <Navbar />
+      <NavBar />
       <div>{children}</div>
       <Footer />
     </div>
