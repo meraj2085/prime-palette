@@ -164,7 +164,6 @@ const NavBar = () => {
               </Link>
             </li>
           ))}
-          <DynamicAuthNav />
         </ul>
       </div>
     </header>
