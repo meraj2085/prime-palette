@@ -75,7 +75,7 @@ const LoginPage = () => {
                 </a>
               </div>
             </div>
-            <p className="px-6 text-sm mb-5 text-start dark:text-gray-400">
+            <p className="px-6 text-sm mb-5 text-start ">
               Don&rsquo;t have an account yet?{" "}
               <Link
                 href="/auth/signUp"

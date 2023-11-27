@@ -84,7 +84,7 @@ const Testimonials = () => {
             <button
               onClick={handlePrev}
               title="left arrow"
-              className="hidden p-2 text-gray-800 transition-colors duration-300 border rounded-full rtl:-scale-x-100 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 lg:block hover:bg-gray-100"
+              className="hidden p-2 text-gray-800 transition-colors duration-300 border rounded-full rtl:-scale-x-100 lg:block hover:bg-gray-100"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -117,10 +117,10 @@ const Testimonials = () => {
                 />
 
                 <div className="mt-4 text-center">
-                  <h1 className="font-semibold text-gray-800 dark:text-white">
+                  <h1 className="font-semibold text-gray-800 ">
                     {reviews[currentIndex].author}
                   </h1>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                  <span className="text-sm text-gray-500 ">
                     {reviews[currentIndex].role}
                   </span>
                 </div>
@@ -130,7 +130,7 @@ const Testimonials = () => {
             <button
               onClick={handleNext}
               title="right arrow"
-              className="hidden p-2 text-gray-800 transition-colors duration-300 border rounded-full rtl:-scale-x-100 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 lg:block hover:bg-gray-100"
+              className="hidden p-2 text-gray-800 transition-colors duration-300 border rounded-full rtl:-scale-x-100 lg:block hover:bg-gray-100"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

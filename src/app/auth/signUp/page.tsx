@@ -94,7 +94,7 @@ const SignUpPage = () => {
                 label="Password"
               />
             </div>
-            <p className="px-6 text-sm mt-2 mb-5 text-start dark:text-gray-400">
+            <p className="px-6 text-sm mt-2 mb-5 text-start ">
               Already have an account?{" "}
               <Link
                 href="/auth/login"

@@ -16,26 +16,26 @@ const Gallery = () => {
         <img
           src="https://source.unsplash.com/301x301/?house/?4"
           alt=""
-          className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-3 md:row-start-1 dark:bg-gray-500 aspect-square"
+          className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-3 md:row-start-1 aspect-square"
         />
         <img
           alt=""
-          className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
+          className="w-full h-full rounded shadow-sm min-h-48 aspect-square"
           src="https://source.unsplash.com/200x200/?house"
         />
         <img
           alt=""
-          className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
+          className="w-full h-full rounded shadow-sm min-h-48 aspect-square"
           src="https://source.unsplash.com/200x200/?house/?1"
         />
         <img
           alt=""
-          className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
+          className="w-full h-full rounded shadow-sm min-h-48 aspect-square"
           src="https://source.unsplash.com/200x200/?house/?2"
         />
         <img
           alt=""
-          className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
+          className="w-full h-full rounded shadow-sm min-h-48 aspect-square"
           src="https://source.unsplash.com/200x200/?house/?3"
         />
       </div>
